@@ -1,0 +1,23 @@
+.filho  {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.list-jogadores > .table{
+    margin-bottom: 0;
+}
+.pai {
+    margin:auto;
+    height: 100vh;
+    display: table;
+}
+
+.pai.loading{
+    height: 85vh;
+}
+
+.row.list-jogadores{
+    border: 2px solid #e4e4e4;
+    margin-top: 30px;
+}
+

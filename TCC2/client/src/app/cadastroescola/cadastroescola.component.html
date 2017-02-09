@@ -1,0 +1,131 @@
+<div class="container">
+  <h1>{{tipoAcao}} Escola</h1>
+  <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label>Escola</label>
+        <input formControlName="nome" name="nome" [(ngModel)]="escola.nome" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.nome.invalid">
+          <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
+            Escola deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
+            Escola deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Estado</label>
+        <input formControlName="estado" name="estado" [(ngModel)]="escola.estado" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.estado.invalid">
+          <span *ngIf="formCadastro.controls.estado.errors.minlength" class="form-control alert-danger">
+            Estado deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.estado.errors.maxlength" class="form-control alert-danger">
+            Estado deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Cidade</label>
+        <input formControlName="cidade" name="cidade" [(ngModel)]="escola.cidade" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.cidade.invalid">
+          <span *ngIf="formCadastro.controls.cidade.errors.minlength" class="form-control alert-danger">
+            Cidade deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.cidade.errors.maxlength" class="form-control alert-danger">
+            Cidade deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Bairro</label>
+        <input formControlName="bairro" name="bairro" [(ngModel)]="escola.bairro" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.bairro.invalid">
+          <span *ngIf="formCadastro.controls.bairro.errors.minlength" class="form-control alert-danger">
+            Bairro deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.bairro.errors.maxlength" class="form-control alert-danger">
+            Bairro deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Rua</label>
+        <input formControlName="rua" name="rua" [(ngModel)]="escola.rua" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.rua.invalid">
+          <span *ngIf="formCadastro.controls.rua.errors.minlength" class="form-control alert-danger">
+            Rua deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.rua.errors.maxlength" class="form-control alert-danger">
+            Rua deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Numero</label>
+        <input formControlName="numero" name="numero" [(ngModel)]="escola.numero" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.numero.invalid">
+          <span *ngIf="formCadastro.controls.numero.errors.minlength" class="form-control alert-danger">
+            Numero deve ter no mínimo 1 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.numero.errors.maxlength" class="form-control alert-danger">
+            Numero deve ter no máximo 8 caracteres
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>E-mail</label>
+        <input formControlName="email" name="email"  [(ngModel)]="escola.email" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.email.invalid">
+          <span *ngIf="formCadastro.controls.email.errors.minlength" class="form-control alert-danger">
+            E-mail deve ter no mínimo 5 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.email.errors.maxlength" class="form-control alert-danger">
+            E-mail deve ter no máximo 30 caracteres
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input formControlName="senha" name="senha" [(ngModel)]="escola.senha" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.senha.invalid">
+          <span *ngIf="formCadastro.controls.senha.errors.minlength" class="form-control alert-danger">
+            Senha deve ter no mínimo 4 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.senha.errors.maxlength" class="form-control alert-danger">
+            Senha deve ter no máximo 12 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone</label>
+        <input formControlName="telefone" name="telefone"  [textMask]="{mask: mask}" [(ngModel)]="escola.telefone" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.telefone.invalid">
+          <span *ngIf="formCadastro.controls.telefone.errors.minlength" class="form-control alert-danger">
+            Telefone deve ter no mínimo 6 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.telefone.errors.maxlength" class="form-control alert-danger">
+            Telefone deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="submit" class="btn btn-primary pull-right" value="Salvar" />
+          <div class="btn btn-primary pull-left" routerLink="/escola">Voltar</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

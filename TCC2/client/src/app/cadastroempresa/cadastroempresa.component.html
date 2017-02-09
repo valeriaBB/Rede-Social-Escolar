@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>{{tipoAcao}} Empresa</h1>
+  <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label>Empresa</label>
+        <input formControlName="nome" name="nome" [(ngModel)]="empresa.nome" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.nome.invalid">
+          <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
+            Empresa deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
+            Empresa deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input formControlName="email" name="email"  [(ngModel)]="empresa.email" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.email.invalid">
+          <span *ngIf="formCadastro.controls.email.errors.minlength" class="form-control alert-danger">
+            E-mail deve ter no mínimo 5 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.email.errors.maxlength" class="form-control alert-danger">
+            E-mail deve ter no máximo 30 caracteres
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input formControlName="senha" name="senha" [(ngModel)]="empresa.senha" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.senha.invalid">
+          <span *ngIf="formCadastro.controls.senha.errors.minlength" class="form-control alert-danger">
+            Senha deve ter no mínimo 4 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.senha.errors.maxlength" class="form-control alert-danger">
+            Senha deve ter no máximo 12 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone</label>
+        <input formControlName="telefone" name="telefone"  [textMask]="{mask: mask}" [(ngModel)]="empresa.telefone" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.telefone.invalid">
+          <span *ngIf="formCadastro.controls.telefone.errors.minlength" class="form-control alert-danger">
+            Telefone deve ter no mínimo 6 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.telefone.errors.maxlength" class="form-control alert-danger">
+            Telefone deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="submit" class="btn btn-primary pull-right" value="Salvar" />
+          <div class="btn btn-primary pull-left" routerLink="/empresa">Voltar</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

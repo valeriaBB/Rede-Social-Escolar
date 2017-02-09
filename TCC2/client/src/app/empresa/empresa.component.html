@@ -1,0 +1,57 @@
+
+<app-header> </app-header>
+
+<div class="container">
+    <div class="jumbotron" style="text-align: center">
+        <h1>QR-Ponto</h1>
+        <p>Listagem de Empresas</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a routerLink="/cadastroempresa" class="btn btn-primary pull-right">Nova Empresa</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row barra">
+        <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por empresa">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Empresa</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Senha</th>
+                    <th>Contabilidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of empresas | empresaPipe: textoProcurado.value">
+                    <td>{{c.nome}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.telefone}}</td>
+                    <td>{{c.senha}}</td>
+                    <td>{{c.nomeContabilidade}}</td>
+                    <td>
+                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroempresa/', c._id]">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

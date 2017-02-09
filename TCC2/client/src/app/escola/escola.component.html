@@ -1,0 +1,64 @@
+<app-header> </app-header>
+
+<div class="container">
+  <div class="jumbotron" style="text-align: center">
+    <h1>TCC2</h1>
+    <p>Listagem de Escolas</p>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="input-group">
+          <span class="input-group-btn">
+              <a routerLink="/cadastroescola" class="btn btn-primary pull-right">Nova Escola</a>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row barra">
+    <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por escola">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Escola</th>
+          <th>Estado</th>
+          <th>Cidade</th>
+          <th>Bairro</th>
+          <th>Rua</th>
+          <th>Numero</th>
+          <th>E-mail</th>
+          <th>Senha</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of escolas | escolaPipe: textoProcurado.value">
+          <td>{{c.nome}}</td>
+          <td>{{c.estado}}</td>
+          <td>{{c.cidade}}</td>
+          <td>{{c.bairro}}</td>
+          <td>{{c.rua}}</td>
+          <td>{{c.numero}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.senha}}</td>
+          <td>{{c.telefone}}</td>
+          <td>
+            <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroescola/', c._id]">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </div>
+          </td>
+          <td>
+            <div class="btn btn-danger btn-xs" (click)="remove(c)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
