@@ -18,6 +18,9 @@ import { EmpresaPipe } from './pipes/empresa.pipe';
 import { EscolaComponent } from './escola/escola.component';
 import { CadastroescolaComponent } from './cadastroescola/cadastroescola.component';
 import { EscolaPipe } from './pipes/escola.pipe';
+import { CadastrousuarioComponent } from './cadastrousuario/cadastrousuario.component';
+import { UsuarioPipe } from './pipes/usuario.pipe';
+
 
 
 @NgModule({
@@ -31,9 +34,10 @@ import { EscolaPipe } from './pipes/escola.pipe';
     EmpresaPipe,
     EscolaComponent,
     CadastroescolaComponent,
-    EscolaPipe
-   
-
+    EscolaPipe,
+    CadastrousuarioComponent,
+    UsuarioPipe
+ 
   ],
   imports: [
     BrowserModule,

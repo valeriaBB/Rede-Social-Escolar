@@ -32,10 +32,6 @@ export class CadastroescolaComponent implements OnInit {
 
       numero: ['', [Validators.compose([Validators.required, Validators.maxLength(8), Validators.minLength(1)])]],
 
-      email: ['', [Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(5)])]],
-
-      senha: ['', [Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(4)])]],
-      
       telefone: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(6)])]],
 
     });

@@ -64,6 +64,10 @@ export class ServerService {
     return this.doGet("escola");
   }
 
+  public getUsuarios() {
+    return this.doGet("usuario");
+  }
+
   public remove(componente: any, url: any) {
     var headers = new Headers();
     headers.append("x-access-token", this.token);

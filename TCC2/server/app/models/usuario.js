@@ -14,9 +14,36 @@ var usuarioSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    ativo: {
+        type: Boolean,
+        required: false
+    },
     tipo: {
         type: Number,
         required: true
+    },
+     formacao: {
+        type: String,
+        required: true
+    },
+    idade: {
+        type: Number,
+        required: true
+    },
+    id_escola: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: false
+
+    },
+    id_responsavel: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: false
+
+    },
+      id_disciplina: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: false
+
     }
 });
 

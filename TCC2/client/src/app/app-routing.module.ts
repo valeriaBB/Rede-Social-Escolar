@@ -5,6 +5,10 @@ import { EscolaComponent } from './escola/escola.component';
 import { CadastroescolaComponent } from './cadastroescola/cadastroescola.component';
 
 
+import { UsuarioComponent } from './usuario/usuario.component';
+import { CadastrousuarioComponent } from './cadastrousuario/cadastrousuario.component';
+
+
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -38,6 +42,19 @@ const routes: Routes = [
   {
     path: 'cadastroescola/:id',
     component: CadastroescolaComponent
+  },
+
+  {
+    path: 'usuario',
+    component: UsuarioComponent
+  },
+  {
+    path: 'cadastrousuario',
+    component: CadastrousuarioComponent
+  },
+  {
+    path: 'cadastrousuario/:id',
+    component: CadastrousuarioComponent
   }
 ];
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-
+import { ServerService } from '../services/server/server.service';
+import { FormBuilder,  FormsModule} from '@angular/forms';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -8,11 +8,24 @@ import { Http } from '@angular/http';
 })
 export class UsuarioComponent implements OnInit {
 
-  email: string;
-  senha: string;
-  constructor(private http: Http) { }
+  public usuarios: Array<any> = [];
+
+  constructor(private service: ServerService) { }
 
   ngOnInit() {
+     this.service.getUsuarios().subscribe(res => {
+      this.usuarios = res;
+  })
+}
+
+   public remove(usuario: any) {
+
+    var url = 'usuario/';
+    var self = this;
+
+    this.service.remove(usuario, url).subscribe(function () {
+      self.usuarios = self.usuarios.filter(c => c._id != usuario._id)
+    });
   }
 
 }

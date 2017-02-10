@@ -27,6 +27,7 @@ consign({ cwd: 'app' })
     .then('auth/autentica.js') // aqui eu garanto que de todos os modulos, o autentica será carregado primeiro
     .then('routes/empresa.js')
     .then('routes/escola.js')
+    .then('routes/usuario.js')
    // .then('routes')
     .into(app);
 
