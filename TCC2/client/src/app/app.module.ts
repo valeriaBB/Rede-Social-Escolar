@@ -20,6 +20,20 @@ import { CadastroescolaComponent } from './cadastroescola/cadastroescola.compone
 import { EscolaPipe } from './pipes/escola.pipe';
 import { CadastrousuarioComponent } from './cadastrousuario/cadastrousuario.component';
 import { UsuarioPipe } from './pipes/usuario.pipe';
+import { DisciplinaComponent } from './disciplina/disciplina.component';
+import { CadastrodisciplinaComponent } from './cadastrodisciplina/cadastrodisciplina.component';
+import { TurmaComponent } from './turma/turma.component';
+import { CadastroturmaComponent } from './cadastroturma/cadastroturma.component';
+import { AlunoComponent } from './aluno/aluno.component';
+import { CadastroalunoComponent } from './cadastroaluno/cadastroaluno.component';
+import { EnqueteComponent } from './enquete/enquete.component';
+import { CadastroenqueteComponent } from './cadastroenquete/cadastroenquete.component';
+import { ProfessorComponent } from './professor/professor.component';
+import { CadastroprofessorComponent } from './cadastroprofessor/cadastroprofessor.component';
+import { QuestionarioComponent } from './questionario/questionario.component';
+import { CadastroquestionarioComponent } from './cadastroquestionario/cadastroquestionario.component';
+import { CadastroresponsavelComponent } from './cadastroresponsavel/cadastroresponsavel.component';
+import { ResponsavelComponent } from './responsavel/responsavel.component';
 
 
 
@@ -36,7 +50,21 @@ import { UsuarioPipe } from './pipes/usuario.pipe';
     CadastroescolaComponent,
     EscolaPipe,
     CadastrousuarioComponent,
-    UsuarioPipe
+    UsuarioPipe,
+    DisciplinaComponent,
+    CadastrodisciplinaComponent,
+    TurmaComponent,
+    CadastroturmaComponent,
+    AlunoComponent,
+    CadastroalunoComponent,
+    EnqueteComponent,
+    CadastroenqueteComponent,
+    ProfessorComponent,
+    CadastroprofessorComponent,
+    QuestionarioComponent,
+    CadastroquestionarioComponent,
+    CadastroresponsavelComponent,
+    ResponsavelComponent
  
   ],
   imports: [

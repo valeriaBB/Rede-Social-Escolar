@@ -1,12 +1,13 @@
 module.exports = function (app) {
-    var api = app.api.empresa;
+    var api = app.api.professor;
  
-    app.route('/empresa')
+    //professor
+    app.route('/professor')
         .get(api.lista)
         .post(api.adiciona)
         .put(api.atualiza);
 
-    app.route('/empresa/:id')
+    app.route('/professor/:id')
         .get(api.buscaPorId)
         .delete(api.removePorId);
 

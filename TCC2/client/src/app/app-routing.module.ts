@@ -4,6 +4,26 @@ import { CadastroempresaComponent } from './cadastroempresa/cadastroempresa.comp
 import { EscolaComponent } from './escola/escola.component';
 import { CadastroescolaComponent } from './cadastroescola/cadastroescola.component';
 
+import { ProfessorComponent } from './professor/professor.component';
+import { CadastroprofessorComponent } from './cadastroprofessor/cadastroprofessor.component';
+
+import { AlunoComponent } from './aluno/aluno.component';
+import { CadastroalunoComponent } from './cadastroaluno/cadastroaluno.component';
+
+import { ResponsavelComponent } from './responsavel/responsavel.component';
+import { CadastroresponsavelComponent } from './cadastroresponsavel/cadastroresponsavel.component';
+
+import { DisciplinaComponent } from './disciplina/disciplina.component';
+import { CadastrodisciplinaComponent } from './cadastrodisciplina/cadastrodisciplina.component';
+
+import { TurmaComponent } from './turma/turma.component';
+import { CadastroturmaComponent } from './cadastroturma/cadastroturma.component';
+
+import { EnqueteComponent } from './enquete/enquete.component';
+import { CadastroenqueteComponent } from './cadastroenquete/cadastroenquete.component';
+
+import { QuestionarioComponent } from './questionario/questionario.component';
+import { CadastroquestionarioComponent } from './cadastroquestionario/cadastroquestionario.component';
 
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CadastrousuarioComponent } from './cadastrousuario/cadastrousuario.component';
@@ -43,7 +63,90 @@ const routes: Routes = [
     path: 'cadastroescola/:id',
     component: CadastroescolaComponent
   },
-
+  {
+    path: 'professor',
+    component: ProfessorComponent
+  },
+  {
+    path: 'cadastroprofessor',
+    component: CadastroprofessorComponent
+  },
+  {
+    path: 'cadastroprofessor/:id',
+    component: CadastroprofessorComponent
+  },
+  {
+    path: 'aluno',
+    component: AlunoComponent
+  },
+  {
+    path: 'cadastroaluno',
+    component: CadastroalunoComponent
+  },
+  {
+    path: 'cadastroaluno/:id',
+    component: CadastroalunoComponent
+  },
+  {
+    path: 'responsavel',
+    component: ResponsavelComponent
+  },
+  {
+    path: 'cadastroresponsavel',
+    component: CadastroresponsavelComponent
+  },
+  {
+    path: 'cadastroresponsavel/:id',
+    component: CadastroresponsavelComponent
+  },
+  {
+    path: 'disciplina',
+    component: DisciplinaComponent
+  },
+  {
+    path: 'cadastrodisciplina',
+    component: CadastrodisciplinaComponent
+  },
+  {
+    path: 'cadastrodisciplina/:id',
+    component: CadastrodisciplinaComponent
+  },
+  {
+    path: 'turma',
+    component: TurmaComponent
+  },
+  {
+    path: 'cadastroturma',
+    component: CadastroturmaComponent
+  },
+  {
+    path: 'cadastroturma/:id',
+    component: CadastroturmaComponent
+  },
+  {
+    path: 'enquete',
+    component: EnqueteComponent
+  },
+  {
+    path: 'cadastroenquete',
+    component: CadastroenqueteComponent
+  },
+  {
+    path: 'cadastroenquete/:id',
+    component: CadastroenqueteComponent
+  },
+  {
+    path: 'questionario',
+    component: QuestionarioComponent
+  },
+  {
+    path: 'cadastroquestionario',
+    component: CadastroquestionarioComponent
+  },
+  {
+    path: 'cadastroquestionario/:id',
+    component: CadastroquestionarioComponent
+  },
   {
     path: 'usuario',
     component: UsuarioComponent
