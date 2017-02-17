@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>{{tipoAcao}} Turma</h1>
+  <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label>Turma</label>
+        <input formControlName="nome" name="nome" [(ngModel)]="turma.nome" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.nome.invalid">
+          <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
+            Turma deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
+            Turma deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Serie</label>
+        <input formControlName="serie" name="serie" [(ngModel)]="turma.serie" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.serie.invalid">
+          <span *ngIf="formCadastro.controls.serie.errors.minlength" class="form-control alert-danger">
+            Série deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.serie.errors.maxlength" class="form-control alert-danger">
+            Série deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class=" botoes row">
+        <div class="col-md-12">
+          <input type="submit" class="btn btn-primary pull-right" value="Salvar" />
+          <div class="btn btn-primary pull-left" routerLink="/turma">Voltar</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

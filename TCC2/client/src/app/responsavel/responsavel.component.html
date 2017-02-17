@@ -1,3 +1,59 @@
-<p>
-  responsavel works!
-</p>
+
+<app-header> </app-header>
+
+<div class="container">
+    <div class="jumbotron" style="text-align: center">
+        <h1>TCC 2</h1>
+        <p>Listagem de Responsáveis</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a routerLink="/cadastroresponsavel" class="btn btn-primary pull-right">Novo Responsável</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row barra">
+        <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por responsável">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Responsável</th>
+                    <th>E-mail</th>
+                    <th>Senha</th>
+                    <th>Formacao</th>
+                    <th>Idade</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of responsaveis | responsavelPipe: textoProcurado.value">
+                    <td>{{c.nome}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.senha}}</td>
+                    <td>{{c.formacao}}</td>
+                    <td>{{c.idade}}</td>
+                    <td>{{c.telefone}}</td>
+                    <td>
+                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroresponsavel/', c._id]">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

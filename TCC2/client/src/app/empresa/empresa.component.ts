@@ -9,19 +9,13 @@ import { FormBuilder,  FormsModule} from '@angular/forms';
 })
 export class EmpresaComponent implements OnInit {
 
-  
-
   public empresas: Array<any> = [];
 
-
   constructor(private service: ServerService) { 
-
-   
-
   }
 
   ngOnInit() {
-    this.service.getEmpresas().subscribe(res => {
+    this.service.getAny('empresa').subscribe(res => {
       this.empresas = res;
     })
   }

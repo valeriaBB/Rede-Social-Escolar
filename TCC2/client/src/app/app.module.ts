@@ -13,27 +13,34 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { ServerService } from './services/server/server.service';
 import { HeaderComponent } from './header/header.component';
 import { EmpresaComponent } from './empresa/empresa.component';
-import { CadastroempresaComponent } from './cadastroempresa/cadastroempresa.component';
+import { CadastroempresaComponent } from './cadastros/cadastroempresa/cadastroempresa.component';
 import { EmpresaPipe } from './pipes/empresa.pipe';
 import { EscolaComponent } from './escola/escola.component';
-import { CadastroescolaComponent } from './cadastroescola/cadastroescola.component';
+import { CadastroescolaComponent } from './cadastros/cadastroescola/cadastroescola.component';
 import { EscolaPipe } from './pipes/escola.pipe';
-import { CadastrousuarioComponent } from './cadastrousuario/cadastrousuario.component';
+import { CadastrousuarioComponent } from './cadastros/cadastrousuario/cadastrousuario.component';
 import { UsuarioPipe } from './pipes/usuario.pipe';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
-import { CadastrodisciplinaComponent } from './cadastrodisciplina/cadastrodisciplina.component';
+import { CadastrodisciplinaComponent } from './cadastros/cadastrodisciplina/cadastrodisciplina.component';
 import { TurmaComponent } from './turma/turma.component';
-import { CadastroturmaComponent } from './cadastroturma/cadastroturma.component';
+import { CadastroturmaComponent } from './cadastros/cadastroturma/cadastroturma.component';
 import { AlunoComponent } from './aluno/aluno.component';
-import { CadastroalunoComponent } from './cadastroaluno/cadastroaluno.component';
+import { CadastroalunoComponent } from './cadastros/cadastroaluno/cadastroaluno.component';
 import { EnqueteComponent } from './enquete/enquete.component';
-import { CadastroenqueteComponent } from './cadastroenquete/cadastroenquete.component';
+import { CadastroenqueteComponent } from './cadastros/cadastroenquete/cadastroenquete.component';
 import { ProfessorComponent } from './professor/professor.component';
-import { CadastroprofessorComponent } from './cadastroprofessor/cadastroprofessor.component';
+import { CadastroprofessorComponent } from './cadastros/cadastroprofessor/cadastroprofessor.component';
 import { QuestionarioComponent } from './questionario/questionario.component';
-import { CadastroquestionarioComponent } from './cadastroquestionario/cadastroquestionario.component';
-import { CadastroresponsavelComponent } from './cadastroresponsavel/cadastroresponsavel.component';
+import { CadastroquestionarioComponent } from './cadastros/cadastroquestionario/cadastroquestionario.component';
+import { CadastroresponsavelComponent } from './cadastros/cadastroresponsavel/cadastroresponsavel.component';
 import { ResponsavelComponent } from './responsavel/responsavel.component';
+import { TurmaPipe } from './pipes/turma.pipe';
+import { ResponsavelPipe } from './pipes/responsavel.pipe';
+import { QuestionarioPipe } from './pipes/questionario.pipe';
+import { ProfessorPipe } from './pipes/professor.pipe';
+import { EnquetePipe } from './pipes/enquete.pipe';
+import { DisciplinaPipe } from './pipes/disciplina.pipe';
+import { AlunoPipe } from './pipes/aluno.pipe';
 
 
 
@@ -64,7 +71,14 @@ import { ResponsavelComponent } from './responsavel/responsavel.component';
     QuestionarioComponent,
     CadastroquestionarioComponent,
     CadastroresponsavelComponent,
-    ResponsavelComponent
+    ResponsavelComponent,
+    TurmaPipe,
+    ResponsavelPipe,
+    QuestionarioPipe,
+    ProfessorPipe,
+    EnquetePipe,
+    DisciplinaPipe,
+    AlunoPipe
  
   ],
   imports: [

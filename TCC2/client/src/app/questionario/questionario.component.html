@@ -1,3 +1,49 @@
-<p>
-  questionario works!
-</p>
+
+<app-header> </app-header>
+
+<div class="container">
+    <div class="jumbotron" style="text-align: center">
+        <h1>TCC 2</h1>
+        <p>Listagem de Questionario</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a routerLink="/cadastroquestionario" class="btn btn-primary pull-right">Novo Questionario</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row barra">
+        <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por questionario">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Questionario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of questionarios | questionarioPipe: textoProcurado.value">
+                    <td>{{c.nome}}</td>
+                    <td>
+                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroquestionario/', c._id]">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

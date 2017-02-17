@@ -1,32 +1,32 @@
 import { EmpresaComponent } from './empresa/empresa.component';
-import { CadastroempresaComponent } from './cadastroempresa/cadastroempresa.component';
+import { CadastroempresaComponent } from './cadastros/cadastroempresa/cadastroempresa.component';
 
 import { EscolaComponent } from './escola/escola.component';
-import { CadastroescolaComponent } from './cadastroescola/cadastroescola.component';
+import { CadastroescolaComponent } from './cadastros/cadastroescola/cadastroescola.component';
 
 import { ProfessorComponent } from './professor/professor.component';
-import { CadastroprofessorComponent } from './cadastroprofessor/cadastroprofessor.component';
+import { CadastroprofessorComponent } from './cadastros/cadastroprofessor/cadastroprofessor.component';
 
 import { AlunoComponent } from './aluno/aluno.component';
-import { CadastroalunoComponent } from './cadastroaluno/cadastroaluno.component';
+import { CadastroalunoComponent } from './cadastros/cadastroaluno/cadastroaluno.component';
 
 import { ResponsavelComponent } from './responsavel/responsavel.component';
-import { CadastroresponsavelComponent } from './cadastroresponsavel/cadastroresponsavel.component';
+import { CadastroresponsavelComponent } from './cadastros/cadastroresponsavel/cadastroresponsavel.component';
 
 import { DisciplinaComponent } from './disciplina/disciplina.component';
-import { CadastrodisciplinaComponent } from './cadastrodisciplina/cadastrodisciplina.component';
+import { CadastrodisciplinaComponent } from './cadastros/cadastrodisciplina/cadastrodisciplina.component';
 
 import { TurmaComponent } from './turma/turma.component';
-import { CadastroturmaComponent } from './cadastroturma/cadastroturma.component';
+import { CadastroturmaComponent } from './cadastros/cadastroturma/cadastroturma.component';
 
 import { EnqueteComponent } from './enquete/enquete.component';
-import { CadastroenqueteComponent } from './cadastroenquete/cadastroenquete.component';
+import { CadastroenqueteComponent } from './cadastros/cadastroenquete/cadastroenquete.component';
 
 import { QuestionarioComponent } from './questionario/questionario.component';
-import { CadastroquestionarioComponent } from './cadastroquestionario/cadastroquestionario.component';
+import { CadastroquestionarioComponent } from './cadastros/cadastroquestionario/cadastroquestionario.component';
 
 import { UsuarioComponent } from './usuario/usuario.component';
-import { CadastrousuarioComponent } from './cadastrousuario/cadastrousuario.component';
+import { CadastrousuarioComponent } from './cadastros/cadastrousuario/cadastrousuario.component';
 
 
 import { LoginComponent } from './login/login.component';

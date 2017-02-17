@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>{{tipoAcao}} Questionário</h1>
+  <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label>Nome</label>
+        <input formControlName="nome" name="nome" [(ngModel)]="questionario.nome" class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.nome.invalid">
+          <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
+             Nome do questionário deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
+            Nome do questionário deve ter no máximo 20 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class=" botoes row">
+        <div class="col-md-12">
+          <input type="submit" class="btn btn-primary pull-right" value="Salvar" />
+          <div class="btn btn-primary pull-left" routerLink="/questionario">Voltar</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -14,9 +14,9 @@ export class EscolaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getEscolas().subscribe(res => {
+    this.service.getAny('escola').subscribe(res => {
       this.escolas = res;
-    })
+    });
   }
 
    public remove(escola: any) {

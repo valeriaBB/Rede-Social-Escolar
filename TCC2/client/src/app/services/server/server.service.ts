@@ -56,16 +56,8 @@ export class ServerService {
     }).map((res: Response) => res.json());
   }
 
-  public getEmpresas() {
-    return this.doGet("empresa");
-  }
-
-   public getEscolas() {
-    return this.doGet("escola");
-  }
-
-  public getUsuarios() {
-    return this.doGet("usuario");
+  getAny(alguem: string) {
+    return this.doGet(alguem);
   }
 
   public remove(componente: any, url: any) {

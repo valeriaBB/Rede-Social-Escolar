@@ -1,3 +1,51 @@
-<p>
-  turma works!
-</p>
+
+<app-header> </app-header>
+
+<div class="container">
+    <div class="jumbotron" style="text-align: center">
+        <h1>TCC 2</h1>
+        <p>Listagem de Turmas</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a routerLink="/cadastroturma" class="btn btn-primary pull-right">Nova Turma</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row barra">
+        <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por turma">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Turma</th>
+                    <th>Serie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of turmas | turmaPipe: textoProcurado.value">
+                    <td>{{c.nome}}</td>
+                    <td>{{c.serie}}</td>
+                    <td>
+                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroturma/', c._id]">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
