@@ -5,10 +5,10 @@
 
       <div class="form-group">
         <label>Turma</label>
-        <input formControlName="nome" name="nome" [(ngModel)]="turma.nome" class="form-control" autocomplete="off">
+        <input formControlName="nome" name="nome" ngModel minlength="1" ngModel maxlength="20" [(ngModel)]="turma.nome" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
-            Turma deve ter no mínimo 3 caracteres
+            Turma deve ter no mínimo 1 caracter
           </span>
           <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
             Turma deve ter no máximo 20 caracteres
@@ -18,10 +18,10 @@
 
       <div class="form-group">
         <label>Serie</label>
-        <input formControlName="serie" name="serie" [(ngModel)]="turma.serie" class="form-control" autocomplete="off">
+        <input formControlName="serie" name="serie" ngModel minlength="1" ngModel maxlength="20" [(ngModel)]="turma.serie" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.serie.invalid">
           <span *ngIf="formCadastro.controls.serie.errors.minlength" class="form-control alert-danger">
-            Série deve ter no mínimo 3 caracteres
+            Série deve ter no mínimo 1 caracter
           </span>
           <span *ngIf="formCadastro.controls.serie.errors.maxlength" class="form-control alert-danger">
             Série deve ter no máximo 20 caracteres

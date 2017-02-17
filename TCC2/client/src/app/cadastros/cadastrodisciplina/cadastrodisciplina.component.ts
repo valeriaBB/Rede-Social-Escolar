@@ -17,7 +17,7 @@ export class CadastrodisciplinaComponent implements OnInit {
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({
-      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(3)])]]
+      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]]
     });
 
     var self = this;

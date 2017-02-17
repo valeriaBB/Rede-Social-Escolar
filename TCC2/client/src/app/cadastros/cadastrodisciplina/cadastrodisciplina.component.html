@@ -5,13 +5,13 @@
 
       <div class="form-group">
         <label>Nome</label>
-        <input formControlName="nome" name="nome" [(ngModel)]="disciplina.nome" class="form-control" autocomplete="off">
+        <input formControlName="nome" name="nome" minlength="3" ngModel maxlength="60"[(ngModel)]="disciplina.nome" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
              Nome da disciplina deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
-            Nome da disciplina deve ter no máximo 20 caracteres
+            Nome da disciplina deve ter no máximo 60 caracteres
           </span>
         </div>
       </div>

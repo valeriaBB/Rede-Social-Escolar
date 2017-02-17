@@ -83,11 +83,11 @@ import { AlunoPipe } from './pipes/aluno.pipe';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpModule,
     AlertModule.forRoot(),
     AppRoutingModule,
-    ReactiveFormsModule,
     TextMaskModule
   ],
   providers: [ServerService, { provide: LocationStrategy, useClass: HashLocationStrategy }],

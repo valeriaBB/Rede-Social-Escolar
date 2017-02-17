@@ -5,20 +5,20 @@
 
       <div class="form-group">
         <label>Escola</label>
-        <input formControlName="nome" name="nome" [(ngModel)]="escola.nome" class="form-control" autocomplete="off">
+        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="escola.nome" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
             Escola deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
-            Escola deve ter no máximo 20 caracteres
+            Escola deve ter no máximo 60 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Estado</label>
-        <input formControlName="estado" name="estado" [(ngModel)]="escola.estado" class="form-control" autocomplete="off">
+        <input formControlName="estado" name="estado" ngModel minlength="3" ngModel maxlength="20" [(ngModel)]="escola.estado" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.estado.invalid">
           <span *ngIf="formCadastro.controls.estado.errors.minlength" class="form-control alert-danger">
             Estado deve ter no mínimo 3 caracteres
@@ -31,59 +31,59 @@
 
       <div class="form-group">
         <label>Cidade</label>
-        <input formControlName="cidade" name="cidade" [(ngModel)]="escola.cidade" class="form-control" autocomplete="off">
+        <input formControlName="cidade" name="cidade" ngModel minlength="3" ngModel maxlength="30" [(ngModel)]="escola.cidade" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.cidade.invalid">
           <span *ngIf="formCadastro.controls.cidade.errors.minlength" class="form-control alert-danger">
             Cidade deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.cidade.errors.maxlength" class="form-control alert-danger">
-            Cidade deve ter no máximo 20 caracteres
+            Cidade deve ter no máximo 30 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Bairro</label>
-        <input formControlName="bairro" name="bairro" [(ngModel)]="escola.bairro" class="form-control" autocomplete="off">
+        <input formControlName="bairro" name="bairro" ngModel minlength="3" ngModel maxlength="30" [(ngModel)]="escola.bairro" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.bairro.invalid">
           <span *ngIf="formCadastro.controls.bairro.errors.minlength" class="form-control alert-danger">
             Bairro deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.bairro.errors.maxlength" class="form-control alert-danger">
-            Bairro deve ter no máximo 20 caracteres
+            Bairro deve ter no máximo 30 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Rua</label>
-        <input formControlName="rua" name="rua" [(ngModel)]="escola.rua" class="form-control" autocomplete="off">
+        <input formControlName="rua" name="rua" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="escola.rua" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.rua.invalid">
           <span *ngIf="formCadastro.controls.rua.errors.minlength" class="form-control alert-danger">
             Rua deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.rua.errors.maxlength" class="form-control alert-danger">
-            Rua deve ter no máximo 20 caracteres
+            Rua deve ter no máximo 60 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Numero</label>
-        <input formControlName="numero" name="numero" [(ngModel)]="escola.numero" class="form-control" autocomplete="off">
+        <input formControlName="numero" name="numero" ngModel minlength="1" ngModel maxlength="10" [(ngModel)]="escola.numero" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.numero.invalid">
           <span *ngIf="formCadastro.controls.numero.errors.minlength" class="form-control alert-danger">
-            Numero deve ter no mínimo 1 caracteres
+            Numero deve ter no mínimo 1 caracter
           </span>
           <span *ngIf="formCadastro.controls.numero.errors.maxlength" class="form-control alert-danger">
-            Numero deve ter no máximo 8 caracteres
+            Numero deve ter no máximo 10 caracteres
           </span>
         </div>
       </div>
       
       <div class="form-group">
         <label>Telefone</label>
-        <input formControlName="telefone" name="telefone"  [textMask]="{mask: mask}" [(ngModel)]="escola.telefone" class="form-control" autocomplete="off">
+        <input formControlName="telefone" ngModel minlength="6" ngModel maxlength="20" name="telefone"  [textMask]="{mask: mask}" [(ngModel)]="escola.telefone" class="form-control" autocomplete="off">
         <div *ngIf="formCadastro.controls.telefone.invalid">
           <span *ngIf="formCadastro.controls.telefone.errors.minlength" class="form-control alert-danger">
             Telefone deve ter no mínimo 6 caracteres

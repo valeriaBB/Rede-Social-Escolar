@@ -17,8 +17,8 @@ export class CadastroturmaComponent implements OnInit {
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({
-      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(3)])]],
-      serie: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(3)])]]
+      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(1)])]],
+      serie: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(1)])]]
     });
 
     var self = this;
