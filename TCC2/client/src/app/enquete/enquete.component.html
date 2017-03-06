@@ -27,11 +27,13 @@
             <thead>
                 <tr>
                     <th>Enquete</th>
+                    <th>Pergunta</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let c of enquetes | enquetePipe: textoProcurado.value">
                     <td>{{c.nome}}</td>
+                    <td>{{c.pergunta}}</td>
                     <td>
                         <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroenquete/', c._id]">
                             <span class="glyphicon glyphicon-pencil"></span>

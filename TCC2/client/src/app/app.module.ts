@@ -43,7 +43,6 @@ import { DisciplinaPipe } from './pipes/disciplina.pipe';
 import { AlunoPipe } from './pipes/aluno.pipe';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
