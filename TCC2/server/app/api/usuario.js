@@ -4,6 +4,12 @@ var mongoose = require('mongoose');
 var api = {}
 var model = mongoose.model('Usuario');
 
+
+api.adiciona = function (c) {
+    c["ativo"] = true;
+    return model.create(c);
+};
+
 api.lista = function (req, res) {
     model
         .find({ ativo: true })

@@ -32,16 +32,19 @@ var usuarioSchema = mongoose.Schema({
     },
     id_escola: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola',
         required: false
 
     },
     id_responsavel: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Responsavel',
         required: false
 
     },
       id_disciplina: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Disciplina',
         required: false
 
     }

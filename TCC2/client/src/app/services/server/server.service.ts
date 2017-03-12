@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ServerService {
 
   closeResult: string;
+  public userLogado: UsuarioLogado;
 
   URL = "http://localhost:3000/"
 
@@ -24,15 +25,18 @@ export class ServerService {
     localStorage.clear();
   }
 
-  public usuarioLogado(id: any, nome: any, email: any) {
+  public usuarioLogado(id: any, nome: any, email: any, tipo: any) {
 
     id = JSON.stringify(id);
     nome = JSON.stringify(nome);
     email = JSON.stringify(email);
+    tipo = tipo;
 
-    var usuarioLogado = new UsuarioLogado(id, nome, email);
+    this.userLogado = new UsuarioLogado(id, nome, email, tipo);
 
   }
+
+ 
 
   public login(objUsuario: any): Observable<any> {
 
@@ -45,6 +49,10 @@ export class ServerService {
         this.user = res.json();
         return res.json();
       });
+  }
+
+  public verificaTipo() {
+    return this.userLogado.tipo;
   }
 
   doGet(url) {
@@ -102,13 +110,13 @@ export class ServerService {
         this.router.navigate(['/escola']);
         break;
       case 2:
-        this.router.navigate(['/empresa']);
+        this.router.navigate(['/professor']);
         break;
       case 3:
-        this.router.navigate(['/colaborador']);
+        this.router.navigate(['/aluno']);
         break;
       case 4:
-        this.router.navigate(['/ponto']);
+        this.router.navigate(['/responsavel']);
         break;
       default:
         this.router.navigate(['/login']);

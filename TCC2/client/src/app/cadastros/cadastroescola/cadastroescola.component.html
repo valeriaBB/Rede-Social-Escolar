@@ -16,6 +16,32 @@
         </div>
       </div>
 
+       <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" formControlName="email" name="email" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="escola.email" class="form-control" autocomplete="off" required>
+        <div *ngIf="formCadastro.controls.email.invalid">
+          <span *ngIf="formCadastro.controls.email.errors.minlength" class="form-control alert-danger">
+            E-mail deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.email.errors.maxlength" class="form-control alert-danger">
+            E-mail deve ter no máximo 60 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Senha</label>
+        <input formControlName="senha" name="senha" ngModel minlength="6" ngModel maxlength="12" [(ngModel)]="escola.senha" class="form-control" autocomplete="off" required>
+        <div *ngIf="formCadastro.controls.senha.invalid">
+          <span *ngIf="formCadastro.controls.senha.errors.minlength" class="form-control alert-danger">
+            Senha deve ter no mínimo 6 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.senha.errors.maxlength" class="form-control alert-danger">
+            Senha deve ter no máximo 12 caracteres
+          </span>
+        </div>
+      </div>
+
       <div class="form-group">
         <label>Estado</label>
         <input formControlName="estado" name="estado" ngModel minlength="3" ngModel maxlength="20" [(ngModel)]="escola.estado" class="form-control" autocomplete="off" required>

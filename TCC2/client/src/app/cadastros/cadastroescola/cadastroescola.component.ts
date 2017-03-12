@@ -21,6 +21,8 @@ export class CadastroescolaComponent implements OnInit {
 
     this.formCadastro = fb.group({
       nome: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
+      email: ['', [Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(5)])]],
+      senha: ['', [Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(6)])]],
       estado: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(3)])]],
       cidade: ['', [Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(3)])]],
       bairro: ['', [Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(3)])]],

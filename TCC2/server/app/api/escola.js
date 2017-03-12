@@ -39,16 +39,39 @@ api.removePorId = function (req, res) {
         });
 };
 
-api.adiciona = function (req, res) {
+// api.adiciona = function (req, res) {
 
+//     console.log(req.body);
+//     var c = req.body;
+//     c["ativo"] = true;
+//     model
+//         .create(c)
+//         .then(function (escola) {
+//             res.json(escola);
+//             console.log(c);
+//         }, function (error) {
+//             console.log(error);
+//             res.status(500).json(error);
+//         });
+// };
+
+api.adiciona = function (req, res) {
     console.log(req.body);
     var c = req.body;
     c["ativo"] = true;
     model
         .create(c)
         .then(function (escola) {
-            res.json(escola);
-            console.log(c);
+
+            usuarioModel.adiciona({
+                nome: req.body.nome,
+                email: req.body.email,
+                senha: req.body.senha,
+                id_escola: escola._id,
+                tipo: 2
+            }).then(usu => {
+                res.json(escola);
+            });
         }, function (error) {
             console.log(error);
             res.status(500).json(error);

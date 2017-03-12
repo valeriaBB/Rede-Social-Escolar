@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.service.login(objUsuario).subscribe(res => {
-      this.service.usuarioLogado(res._id, res.nome, res.email);
+      this.service.usuarioLogado(res._id, res.nome, res.email, res.tipo);
       this.service.redirect(res.tipo);
     }, err => {
       this.Erro = true;

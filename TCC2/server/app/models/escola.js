@@ -14,6 +14,14 @@ var schema = mongoose.Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
+    senha: {
+        type: String,
+        required: true
+    },
     bairro: {
         type: String,
         required: true
