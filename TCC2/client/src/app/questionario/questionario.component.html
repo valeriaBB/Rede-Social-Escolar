@@ -1,11 +1,8 @@
 
 <app-header> </app-header>
 
-<div class="container">
-    <div class="jumbotron" style="text-align: center">
-        <h1>TCC 2</h1>
-        <p>Listagem de Questionario</p>
-    </div>
+<div class="container tabela">
+    <div class='titulo-pagina'>Questionários Cadastrados</div>
     <div class="row">
         <div class="col-md-12">
             <form>
@@ -33,12 +30,12 @@
                 <tr *ngFor="let c of questionarios | questionarioPipe: textoProcurado.value">
                     <td>{{c.nome}}</td>
                     <td>
-                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroquestionario/', c._id]">
+                        <div class="btn btnEditar btn-primary btn-xs" [routerLink]="['/cadastroquestionario/', c._id]">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </div>
                     </td>
                     <td>
-                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                        <div class="btn btnExcluir btn-danger btn-xs" (click)="remove(c)">
                             <span class="glyphicon glyphicon-trash"></span>
                         </div>
                     </td>

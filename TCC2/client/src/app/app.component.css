@@ -1,1 +1,10 @@
-
+.foo{
+    position:absolute;
+    background-color: #4cc2c4;
+    width: 100%;
+    color:#fff;
+    margin-top: 40px;
+}
+.tabela{
+    min-height: 470px;
+}

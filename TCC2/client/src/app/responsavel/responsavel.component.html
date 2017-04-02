@@ -1,27 +1,12 @@
-
-<app-header> </app-header>
-
+<app-header></app-header>
 <div class="container">
-    <div class="jumbotron" style="text-align: center">
-        <h1>TCC 2</h1>
-        <p>Listagem de Responsáveis</p>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <a routerLink="/cadastroresponsavel" class="btn btn-primary pull-right btnNovo">Novo Responsável</a>
-                    </span>
-                </div>
-            </form>
-        </div>
-    </div>
+    <div class='titulo-pagina'>Responsáveis Cadastrados</div>
+    <a routerLink="/cadastroresponsavel" class="btn btn-primary pull-right btnNovo">Novo Responsável</a>
     <div class="row barra">
         <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por responsável">
     </div>
 </div>
-<div class="container">
+<div class="container tabela">
     <div class="row">
         <table class="table table-striped">
             <thead>
@@ -43,12 +28,12 @@
                     <td>{{c.idade}}</td>
                     <td>{{c.telefone}}</td>
                     <td>
-                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroresponsavel/', c._id]">
+                        <div class="btn btnEditar btn-primary btn-xs" [routerLink]="['/cadastroresponsavel/', c._id]">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </div>
                     </td>
                     <td>
-                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                        <div class="btn btnExcluir btn-danger btn-xs" (click)="remove(c)">
                             <span class="glyphicon glyphicon-trash"></span>
                         </div>
                     </td>

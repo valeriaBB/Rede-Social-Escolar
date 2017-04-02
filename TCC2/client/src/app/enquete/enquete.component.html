@@ -1,11 +1,7 @@
-
 <app-header> </app-header>
 
 <div class="container">
-    <div class="jumbotron" style="text-align: center">
-        <h1>TCC 2</h1>
-        <p>Listagem de Enquetes</p>
-    </div>
+    <div class='titulo-pagina'>Enquetes Cadastradas</div>
     <div class="row">
         <div class="col-md-12">
             <form>
@@ -21,7 +17,7 @@
         <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por enquete">
     </div>
 </div>
-<div class="container">
+<div class="container tabela">
     <div class="row">
         <table class="table table-striped">
             <thead>
@@ -35,12 +31,12 @@
                     <td>{{c.nome}}</td>
                     <td>{{c.pergunta}}</td>
                     <td>
-                        <div class="btn btn-primary btn-xs" [routerLink]="['/cadastroenquete/', c._id]">
+                        <div class="btn btnEditar btn-primary btn-xs" [routerLink]="['/cadastroenquete/', c._id]">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </div>
                     </td>
                     <td>
-                        <div class="btn btn-danger btn-xs" (click)="remove(c)">
+                        <div class="btn btnExcluir btn-danger btn-xs" (click)="remove(c)">
                             <span class="glyphicon glyphicon-trash"></span>
                         </div>
                     </td>
