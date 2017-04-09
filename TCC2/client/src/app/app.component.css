@@ -1,10 +1,13 @@
 .foo{
     position:absolute;
     background-color: #4cc2c4;
-    width: 100%;
     color:#fff;
+    width: 100%;
     margin-top: 40px;
 }
 .tabela{
     min-height: 470px;
+}
+.texto-foo{
+    margin-left:40px;
 }

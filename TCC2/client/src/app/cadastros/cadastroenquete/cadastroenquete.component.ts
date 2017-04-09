@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
   templateUrl: './cadastroenquete.component.html',
   styleUrls: ['./cadastroenquete.component.css']
 })
+
 export class CadastroenqueteComponent implements OnInit {
 
   formCadastro: FormGroup;
@@ -36,9 +37,7 @@ export class CadastroenqueteComponent implements OnInit {
           );
       }
     });
-
     this.http = http;
-
   }
 
   ngOnInit() {

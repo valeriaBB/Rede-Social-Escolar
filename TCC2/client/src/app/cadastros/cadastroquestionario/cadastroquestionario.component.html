@@ -1,5 +1,6 @@
+<app-header></app-header>
 <div class="container">
-  <h1>{{tipoAcao}} Questionário</h1>
+  <h3>{{tipoAcao}} Questionário</h3>
   <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
     <div class="col-md-6">
 
@@ -18,8 +19,8 @@
 
       <div class=" botoes row">
         <div class="col-md-12">
-          <input type="submit" class="btn btn-primary pull-right" value="Salvar" />
-          <div class="btn btn-primary pull-left" routerLink="/questionario">Voltar</div>
+          <input type="submit" class="btn btnNovo pull-right" value="Salvar" />
+          <div class="btn btnNovo pull-left" routerLink="/questionario">Voltar</div>
         </div>
       </div>
     </div>

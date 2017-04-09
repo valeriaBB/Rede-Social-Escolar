@@ -3,10 +3,28 @@
     border-color: #4cc2c4;
 }
 .titulo-pagina{
-    font-size:30px;
+    font-size:25px;
     cursor:default;
     margin: 30px 0 0 0;
 }
 .barra{
     margin-bottom: 28px;
+}
+.btnNovo{
+    color: #fff;
+    background-color: #f54785;
+    border-color: #f54785;
+    margin: 10px 0 21px 0;
+    border-radius: 5px !important;
+}
+.btnNovo:active{
+    color: #333 !important;
+    background-color: #f54785 !important;
+    border-color: #f54785 !important;
+}
+.btnNovo:hover{
+    color: #333 !important;  
+}
+.tabela{
+    min-height: 350px;
 }

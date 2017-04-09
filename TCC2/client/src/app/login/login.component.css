@@ -1,23 +1,9 @@
 .login{
-    min-width: 770px;
-}
-
-.filho  {
-    display: table-cell;
-    vertical-align: middle;
+    min-width: 450px;
 }
 
 .list-jogadores > .table{
     margin-bottom: 0;
-}
-.pai {
-    margin:auto;
-    height: 45vh;
-    display: table;
-}
-
-.pai.loading{
-    height: 85vh;
 }
 
 .row.list-jogadores{
@@ -31,7 +17,7 @@
     border-color: #f54785;
 }
 .painel{
-    max-width: 50%;
+    max-width: 35%;
     position: relative;
     left: 0;
     right: 0;
@@ -58,6 +44,7 @@
 
 .painelLogin{
     width: 100%;
+    margin:30px 0;
     text-align: center;
 }
 
