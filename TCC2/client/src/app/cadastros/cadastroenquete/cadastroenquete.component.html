@@ -32,10 +32,34 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label>Alternativa 1</label>
+        <input formControlName="alternativa" name="alternativa" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa.titulo"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.alternativa.invalid">
+          <span *ngIf="formCadastro.controls.alternativa.errors.minlength" class="form-control alert-danger">
+             Alternativa 1 da enquete deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.alternativa.errors.maxlength" class="form-control alert-danger">
+            Alternativa 1 da enquete deve ter no máximo 60 caracteres
+          </span>
+        </div>
+      </div>
 
-
-
-
+      <div *ngFor= "let alternativa of alternativas" class="form-group">
+        <label>Alternativa</label>
+        <input formControlName="alternativa" name="alternativa" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa.titulo"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.alternativa.invalid">
+          <span *ngIf="formCadastro.controls.alternativa.errors.minlength" class="form-control alert-danger">
+             Alternativa 2 da enquete deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.alternativa.errors.maxlength" class="form-control alert-danger">
+            Alternativa 2 da enquete deve ter no máximo 60 caracteres
+          </span>
+        </div>
+      </div>
+     
       <div class=" botoes row">
         <div class="col-md-12">
           <input type="submit" class="btn btnNovo pull-right" value="Salvar" />
