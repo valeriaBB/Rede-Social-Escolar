@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server/server.service';
-import Chart from 'chart.js'
 
 @Component({
   selector: 'app-principal',
@@ -10,16 +9,14 @@ import Chart from 'chart.js'
 export class PrincipalComponent implements OnInit {
 
   public enquetes: Array<any> = [];
-  public grafico = new Chart({
-    
-  });
 
-  constructor(private service: ServerService) { }
+  constructor(private service: ServerService) { 
+    
+  }
 
   ngOnInit() {
     this.service.getAny('enquete').subscribe(res => {
       this.enquetes = res;
     })
   }
-
 }

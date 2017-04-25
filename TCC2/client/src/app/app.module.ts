@@ -42,6 +42,8 @@ import { EnquetePipe } from './pipes/enquete.pipe';
 import { DisciplinaPipe } from './pipes/disciplina.pipe';
 import { AlunoPipe } from './pipes/aluno.pipe';
 import { PrincipalComponent } from './principal/principal.component';
+import { GraficoComponent } from './grafico/grafico.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -80,7 +82,8 @@ import { PrincipalComponent } from './principal/principal.component';
     EnquetePipe,
     DisciplinaPipe,
     AlunoPipe,
-    PrincipalComponent
+    PrincipalComponent,
+    GraficoComponent
  
  
   ],
@@ -91,7 +94,8 @@ import { PrincipalComponent } from './principal/principal.component';
     HttpModule,
     AlertModule.forRoot(),
     AppRoutingModule,
-    TextMaskModule
+    TextMaskModule,
+    ChartsModule
   ],
   providers: [ServerService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
