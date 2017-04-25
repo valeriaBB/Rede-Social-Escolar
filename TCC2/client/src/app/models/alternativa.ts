@@ -1,6 +1,6 @@
 export class Alternativa {
 
-    constructor(public quantidade : number){
+    constructor(){
 
     }
     

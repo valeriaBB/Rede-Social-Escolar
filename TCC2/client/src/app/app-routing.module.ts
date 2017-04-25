@@ -28,6 +28,8 @@ import { CadastroquestionarioComponent } from './cadastros/cadastroquestionario/
 import { UsuarioComponent } from './usuario/usuario.component';
 import { CadastrousuarioComponent } from './cadastros/cadastrousuario/cadastrousuario.component';
 
+import { PrincipalComponent } from './principal/principal.component';
+
 
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
@@ -158,6 +160,10 @@ const routes: Routes = [
   {
     path: 'cadastrousuario/:id',
     component: CadastrousuarioComponent
+  },
+   {
+    path: 'principal',
+    component: PrincipalComponent
   }
 ];
 

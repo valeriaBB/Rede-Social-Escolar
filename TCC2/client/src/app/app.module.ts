@@ -41,6 +41,7 @@ import { ProfessorPipe } from './pipes/professor.pipe';
 import { EnquetePipe } from './pipes/enquete.pipe';
 import { DisciplinaPipe } from './pipes/disciplina.pipe';
 import { AlunoPipe } from './pipes/aluno.pipe';
+import { PrincipalComponent } from './principal/principal.component';
 
 
 
@@ -78,7 +79,8 @@ import { AlunoPipe } from './pipes/aluno.pipe';
     ProfessorPipe,
     EnquetePipe,
     DisciplinaPipe,
-    AlunoPipe
+    AlunoPipe,
+    PrincipalComponent
  
  
   ],

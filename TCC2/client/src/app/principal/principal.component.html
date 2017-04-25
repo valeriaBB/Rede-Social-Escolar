@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="efeito">
+  <div class="container">
+    <div class="row chamadaEnquete">
+      <h3>Sabe aquela dúvida?</h3>
+      <h5>Pois então, podemos juntos, como comunidade participar ativamente do processo de melhoria da educação de nossa escola.</h5>
+      <span>Pesquise opniões!</span>
+      <div class="row">
+        <a routerLink="/cadastroenquete" class="btn btnNovo">Começar uma enquete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="enquetes col-md-12">
+      <h5>Enquetes Ativas</h5>
+      <div class="enquete col-md-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Título Enquete</th>
+            </tr>
+            <tr>
+              <th>Pergunta</th>
+            </tr>
+            <tr>
+              <a routerLink="/cadastroenquete" class="btn btnNovo pull-right">Responder</a>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of enquetes">
+              <td>{{c.nome}}</td>
+              <td>{{c.pergunta}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+
+      <div class="resultado col-md-6">
+
+        <!--<div class="grafico" id="grafico" width="400" height="400"></div>-->
+        <canvas id="grafico" width="400" height="400"></canvas>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+</div>

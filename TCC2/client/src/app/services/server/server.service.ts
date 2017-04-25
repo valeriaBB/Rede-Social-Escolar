@@ -30,7 +30,8 @@ export class ServerService {
     id = JSON.stringify(id);
     nome = JSON.stringify(nome);
     email = JSON.stringify(email);
-    tipo = tipo;
+    //tipo = tipo;
+    tipo = 1;
 
     this.userLogado = new UsuarioLogado(id, nome, email, tipo);
 
@@ -107,7 +108,7 @@ export class ServerService {
 
     switch (tipo) {
       case 1:
-        this.router.navigate(['/escola']);
+        this.router.navigate(['/principal']);
         break;
       case 2:
         this.router.navigate(['/professor']);
