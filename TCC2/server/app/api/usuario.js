@@ -7,6 +7,8 @@ var model = mongoose.model('Usuario');
 
 api.adiciona = function (c) {
     c["ativo"] = true;
+    console.log("entrou no adiciona do usuario");
+    console.log(c);
     return model.create(c);
 };
 
@@ -45,7 +47,7 @@ api.removePorId = function (req, res) {
         });
 };
 
-api.adiciona = function (req, res) {
+/*api.adiciona = function (req, res) {
 
     console.log(req.body);
     var c = req.body;
@@ -59,9 +61,9 @@ api.adiciona = function (req, res) {
             console.log(error);
             res.status(500).json(error);
         });
-};
+};*/
 
-api.atualiza = function (req, res) {
+/*api.atualiza = function (req, res) {
     model
         .findByIdAndUpdate(req.body._id, req.body)
         .then(function (usuario) {
@@ -70,6 +72,24 @@ api.atualiza = function (req, res) {
             console.log(error);
             res.status(500).json(error);
         });
+};*/
+api.atualiza = function (c) {
+    //     model
+    //         .findByIdAndUpdate(c._id)
+    //         .then(function (c) {                    console.log('achou user');
+
+    //             //res.json(usuario);
+    //             model.update(c).then(usu => {
+    //                 console.log('atualizou usser')
+    //                 res();
+    //             });
+    //         }, function (error) {
+    //            rej();
+    //         });
+
+    // });
+    // console.log(prom);
+    // return prom;
 };
 
 module.exports = api;

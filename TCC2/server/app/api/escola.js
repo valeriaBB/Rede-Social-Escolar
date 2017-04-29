@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
-
-
-var api = {}
+var usuarioModel = require('./usuario');
 var model = mongoose.model('Escola');
+var modelUsuario = mongoose.model('Usuario');
+var api = {}
 
 api.lista = function (req, res) {
     model

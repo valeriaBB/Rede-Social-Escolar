@@ -41,7 +41,7 @@ var schema = mongoose.Schema({
     ativo: {
         type: Boolean,
         required: false
-    },
+    }
 });
 
 mongoose.model('Escola', schema, 'Escola', false);

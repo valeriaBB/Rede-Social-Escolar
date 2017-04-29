@@ -4,7 +4,7 @@ var usuarioSchema = mongoose.Schema({
 
     nome: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
@@ -24,11 +24,11 @@ var usuarioSchema = mongoose.Schema({
     },
      formacao: {
         type: String,
-        required: true
+        required: false
     },
     idade: {
         type: Number,
-        required: true
+        required: false
     },
     id_escola: {
         type: mongoose.Schema.Types.ObjectId,
@@ -46,7 +46,6 @@ var usuarioSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Disciplina',
         required: false
-
     }
 });
 

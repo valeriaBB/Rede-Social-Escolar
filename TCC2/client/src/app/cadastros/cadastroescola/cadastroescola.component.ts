@@ -31,7 +31,6 @@ export class CadastroescolaComponent implements OnInit {
       telefone: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(6)])]]
     });
 
-
     var self = this;
 
     this.route = route;

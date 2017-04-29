@@ -14,7 +14,7 @@ export class AlunoComponent implements OnInit {
   constructor(private service: ServerService) { }
 
   ngOnInit() {
-    this.service.getAny('aluno').subscribe(res => {
+    this.service.getAlunos().subscribe(res => {
       this.alunos = res;
     })
   }

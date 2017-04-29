@@ -26,15 +26,11 @@ export class ServerService {
   }
 
   public usuarioLogado(id: any, nome: any, email: any, tipo: any) {
-
     id = JSON.stringify(id);
     nome = JSON.stringify(nome);
     email = JSON.stringify(email);
-    //tipo = tipo;
-    tipo = 1;
-
+    tipo = tipo;
     this.userLogado = new UsuarioLogado(id, nome, email, tipo);
-
   }
 
  
@@ -68,6 +64,20 @@ export class ServerService {
   getAny(alguem: string) {
     return this.doGet(alguem);
   }
+  public getEscolas() {
+    return this.doGet("escola");
+  }
+  public getProfessores() {
+    return this.doGet("professor");
+  }
+  public getAlunos() {
+    return this.doGet("aluno");
+  }
+  public getResponsaveis() {
+    return this.doGet("responsaveis");
+  }
+ 
+ 
 
   public remove(componente: any, url: any) {
     var headers = new Headers();
@@ -105,6 +115,13 @@ export class ServerService {
   }
 
   public redirect(tipo: any) {
+
+    if (tipo == "undefined"){
+      console.log("tipo veio indefinido");
+      tipo = 1;
+    }else {
+      console.log("tipo veio number");
+    }
 
     switch (tipo) {
       case 1:
