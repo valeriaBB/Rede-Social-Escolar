@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-
+var usuarioModel = require('./usuario');
+var modelUsuario = mongoose.model('Usuario');
 var api = {}
 var model = mongoose.model('Responsavel');
 
@@ -28,7 +28,6 @@ api.buscaPorId = function (req, res) {
 };
 
 api.removePorId = function (req, res) {
-
     model
         .findByIdAndUpdate(req.params.id, { ativo: false })
         .then(function (responsavel) {
@@ -40,15 +39,21 @@ api.removePorId = function (req, res) {
 };
 
 api.adiciona = function (req, res) {
-
     console.log(req.body);
     var c = req.body;
     c["ativo"] = true;
     model
-        .create(c)
-        .then(function (responsavel) {
-            res.json(responsavel);
-            console.log(c);
+       .create(c)
+       .then(function (responsavel) {
+            usuarioModel.adiciona({
+                nome: req.body.nome,
+                email: req.body.email,
+                senha: req.body.senha,
+                id_responsavel: responsavel._id,
+                tipo: 5
+            }).then(usu => {
+                res.json(responsavel);
+            });
         }, function (error) {
             console.log(error);
             res.status(500).json(error);

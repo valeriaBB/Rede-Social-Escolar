@@ -34,17 +34,20 @@ var usuarioSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Escola',
         required: false
-
+    },
+    id_professor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Professor',
+        required: false
+    },
+    id_aluno: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Aluno',
+        required: false
     },
     id_responsavel: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Responsavel',
-        required: false
-
-    },
-      id_disciplina: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Disciplina',
         required: false
     }
 });

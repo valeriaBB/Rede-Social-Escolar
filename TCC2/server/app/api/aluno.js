@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-
+var usuarioModel = require('./usuario');
+var modelUsuario = mongoose.model('Usuario');
 var api = {}
 var model = mongoose.model('Aluno');
 
@@ -40,15 +40,21 @@ api.removePorId = function (req, res) {
 };
 
 api.adiciona = function (req, res) {
-
     console.log(req.body);
     var c = req.body;
     c["ativo"] = true;
     model
         .create(c)
         .then(function (aluno) {
-            res.json(aluno);
-            console.log(c);
+            usuarioModel.adiciona({
+                nome: req.body.nome,
+                email: req.body.email,
+                senha: req.body.senha,
+                id_aluno: aluno._id,
+                tipo: 4
+            }).then(usu => {
+                res.json(aluno);
+            });
         }, function (error) {
             console.log(error);
             res.status(500).json(error);

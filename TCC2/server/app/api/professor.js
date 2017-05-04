@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-
+var usuarioModel = require('./usuario');
+var modelUsuario = mongoose.model('Usuario');
 var api = {}
 var model = mongoose.model('Professor');
 
@@ -47,8 +47,15 @@ api.adiciona = function (req, res) {
     model
         .create(c)
         .then(function (professor) {
-            res.json(professor);
-            console.log(c);
+            usuarioModel.adiciona({
+                nome: req.body.nome,
+                email: req.body.email,
+                senha: req.body.senha,
+                id_professor: professor._id,
+                tipo: 3
+            }).then(usu => {
+                res.json(professor);
+            });
         }, function (error) {
             console.log(error);
             res.status(500).json(error);

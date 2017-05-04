@@ -35,7 +35,6 @@ export class CadastroenqueteComponent implements OnInit {
       alternativa4: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
       alternativa5: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]]
     });
-    console.log("entrou no constructor");
     var self = this;
 
     this.route = route;

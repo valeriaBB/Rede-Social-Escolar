@@ -4,21 +4,15 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable, Subject } from "rxjs";
 import { Router, ActivatedRoute } from '@angular/router';
 
-
-
 @Injectable()
 export class ServerService {
-
   closeResult: string;
   public userLogado: UsuarioLogado;
-
   URL = "http://localhost:3000/"
-
   public token: string;
   public user: UsuarioLogado;
   constructor(private http: Http, private router: Router) {
     this.token = localStorage.getItem("__token");
-
   }
 
   public sair() {
@@ -32,13 +26,9 @@ export class ServerService {
     tipo = tipo;
     this.userLogado = new UsuarioLogado(id, nome, email, tipo);
   }
-
- 
-
+  
   public login(objUsuario: any): Observable<any> {
-
     localStorage.clear();
-
     return this.http.post(this.URL + 'autenticar', objUsuario)
       .map((res: Response) => {
         this.token = res.headers.get('x-access-token');
@@ -55,7 +45,6 @@ export class ServerService {
   doGet(url) {
     var headers = new Headers();
     headers.append("x-access-token", this.token);
-
     return this.http.get(this.URL + url, {
       headers: headers
     }).map((res: Response) => res.json());
@@ -76,13 +65,10 @@ export class ServerService {
   public getResponsaveis() {
     return this.doGet("responsaveis");
   }
- 
- 
 
   public remove(componente: any, url: any) {
     var headers = new Headers();
     headers.append("x-access-token", this.token);
-
     var del = this.http.delete(this.URL + url + componente._id, {
       headers: headers
     });
@@ -91,56 +77,38 @@ export class ServerService {
 
   public salvar(obj, url) {
     event.preventDefault();
-
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append("x-access-token", this.token);
-
     var method = 'post';
-
     if (obj['_id'])
       method = 'put';
-
     return this.http[method](this.URL + url, JSON.stringify(obj), { headers: headers });
   }
 
   public editar(id: string, url: any) {
-
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append("x-access-token", this.token);
-
     return this.http.get(this.URL + url + id.toString(), { headers: headers });
-
   }
 
   public redirect(tipo: any) {
-
-    if (tipo == "undefined"){
-      console.log("tipo veio indefinido");
-      tipo = 1;
-    }else {
-      console.log("tipo veio number");
-    }
-
     switch (tipo) {
       case 1:
         this.router.navigate(['/principal']);
         break;
       case 2:
-        this.router.navigate(['/professor']);
+        this.router.navigate(['/principal']);
         break;
       case 3:
-        this.router.navigate(['/aluno']);
+        this.router.navigate(['/principal']);
         break;
       case 4:
-        this.router.navigate(['/responsavel']);
+        this.router.navigate(['/principal']);
         break;
       default:
         this.router.navigate(['/login']);
     }
   }
-
-
-
 }

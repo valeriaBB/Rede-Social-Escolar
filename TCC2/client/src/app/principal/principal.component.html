@@ -17,55 +17,24 @@
       <h5>Enquetes Ativas</h5>
       <div class="enquete col-md-6">
         <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Título Enquete</th>
-            </tr>
-            <tr>
-              <th>Pergunta</th>
-            </tr>
-            <tr>
-              <a routerLink="/cadastroenquete" class="btn btnNovo pull-right">Responder</a>
-            </tr>
-          </thead>
           <tbody>
-            <tr *ngFor="let c of enquetes">
-              <td>{{c.nome}}</td>
-              <td>{{c.pergunta}}</td>
+            <tr>
+              <td>Título:</td>
+              <td>Choices about your child's schooling</td>
+            </tr>
+            <tr>
+              <td>Pergunta:</td>
+              <td>How confident are you in your ability to make choices about your child's schooling?</td>
+            </tr>
+            <tr>
+              <a routerLink="/responderenquete/0" class="btn btnNovo">Responder</a>
             </tr>
           </tbody>
         </table>
       </div>
-
-
-
-
       <div class="resultado col-md-6">
         <app-grafico></app-grafico>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
-
   </div>
 </div>

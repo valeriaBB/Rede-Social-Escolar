@@ -16,9 +16,7 @@ export class HeaderComponent implements OnInit {
   tipo?: any;
 
   constructor(private service: ServerService) {
-
     this.tipo = this.service.verificaTipo();
-
     switch (this.tipo) {
       case 1:
         this.Master = true;
@@ -37,11 +35,18 @@ export class HeaderComponent implements OnInit {
       case 3:
         this.Master = false;
         this.Escola = false;
+        this.Professor = true;
+        this.Aluno = false;
+        this.Responsavel = false;
+        break;
+      case 4:
+        this.Master = false;
+        this.Escola = false;
         this.Professor = false;
         this.Aluno = true;
         this.Responsavel = false;
         break;
-      case 4:
+      case 5:
         this.Master = false;
         this.Escola = false;
         this.Professor = false;
@@ -51,15 +56,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
   ngOnInit() {
-
   }
-
-
 
   public sair(event) {
     this.service.sair();
   }
-
 }

@@ -30,6 +30,7 @@ import { CadastrousuarioComponent } from './cadastros/cadastrousuario/cadastrous
 
 import { PrincipalComponent } from './principal/principal.component';
 
+import { ResponderenqueteComponent } from './responderenquete/responderenquete.component';
 
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
@@ -164,6 +165,10 @@ const routes: Routes = [
    {
     path: 'principal',
     component: PrincipalComponent
+  },
+  {
+    path: 'responderenquete/:id',
+    component: ResponderenqueteComponent
   }
 ];
 

@@ -1,17 +1,3 @@
-<!--<div class="header">
-    <ul class="nav nav-pills">
-        <li role="presentation"> <a routerLink="/escola" routerLinkActive="active">Escolas</a></li>
-        <li role="presentation"> <a routerLink="/professor" routerLinkActive="active">Professores</a></li>
-        <li role="presentation"> <a routerLink="/aluno" routerLinkActive="active">Alunos</a></li>
-        <li role="presentation"> <a routerLink="/responsavel" routerLinkActive="active">Responsaveis</a></li>
-        <li role="presentation"> <a routerLink="/disciplina" routerLinkActive="active">Disciplinas</a></li>
-        <li role="presentation"> <a routerLink="/turma" routerLinkActive="active">Turmas</a></li>
-        <li role="presentation"> <a routerLink="/enquete" routerLinkActive="active">Enquetes</a></li>
-        <li role="presentation"> <a routerLink="/questionario" routerLinkActive="active">Questionarios</a></li>
-        <li role="presentation" class="pull-right"> <a routerLink="/login" (submit)="sair($event)">Sair</a></li>
-    </ul>
-</div>-->
-
 <div class="w3_navigation">
     <div class="container">
         <nav class="navbar navbar-default">
@@ -23,6 +9,7 @@
             <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                 <nav class="link-effect-5" id="link-effect-5">
                     <div class="collapse navbar-collapse">
+                        <!--master-->
                         <ul [hidden]="!Master" class="nav navbar-nav">
                             <li><a class="scroll hvr-underline-from-center" routerLink="/principal" routerLinkActive="active">Principal<span class="sr-only">(current)</span></a></li>
                             <li><a class="scroll hvr-underline-from-center" routerLink="/escola" routerLinkActive="active">Escola<span class="sr-only">(current)</span></a></li>
@@ -33,69 +20,42 @@
                             <li><a class="scroll hvr-underline-from-center" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a></li>
                             <li><a class="scroll hvr-underline-from-center" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></li>
                         </ul>
+                        <!--escola-->
+                        <ul [hidden]="!Escola" class="nav navbar-nav">
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/principal" routerLinkActive="active">Principal<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/professor" routerLinkActive="active">Professor<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/aluno" routerLinkActive="active">Aluno<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/responsavel" routerLinkActive="active">Responsável<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                        <!--professor-->
+                        <ul [hidden]="!Professor" class="nav navbar-nav">
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/principal" routerLinkActive="active">Principal<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/aluno" routerLinkActive="active">Aluno<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/responsavel" routerLinkActive="active">Responsável<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                        <!--aluno-->
+                        <ul [hidden]="!Aluno" class="nav navbar-nav">
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/principal" routerLinkActive="active">Principal<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/responsavel" routerLinkActive="active">Responsável<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></li>
+                        </ul>
+                        <!--responsavel-->
+                        <ul [hidden]="!Responsavel" class="nav navbar-nav">
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a></li>
+                            <li><a class="scroll hvr-underline-from-center" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></li>
+                        </ul>
                     </div>
                 </nav>
             </div>
         </nav>
     </div>
 </div>
-
-
-
-
-<!--<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavAltMarkup"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-    <a class="navbar-brand">TCC 2</a>-->
-
-    <!--<div class="collapse navbar-collapse">
-        <div [hidden]="!Master" class="navbar-nav">
-            <a class="nav-item nav-link active" routerLink="/escola" routerLinkActive="active">Escola<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/professor" routerLinkActive="active">Professor<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/aluno" routerLinkActive="active">Aluno<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/responsavel" routerLinkActive="active">Responsável<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a>
-            <div class="sair"> <a class="nav-item nav-link active" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></div>
-        </div>
-    </div>-->
-
-    <!--<div class="collapse navbar-collapse">
-        <div [hidden]="!Escola" class="navbar-nav">
-            <a class="nav-item nav-link active" routerLink="/professor" routerLinkActive="active">Professor<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/aluno" routerLinkActive="active">Aluno<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/responsavel" routerLinkActive="active">Responsável<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a>
-            <div class="sair"><a class="nav-item nav-link active" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></div>
-        </div>
-    </div>
-
-    <div class="collapse navbar-collapse">
-        <div [hidden]="!Professor" class="navbar-nav">
-            <a class="nav-item nav-link active" routerLink="/aluno" routerLinkActive="active">Aluno<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/responsavel" routerLinkActive="active">Responsável<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a>
-            <div class="sair"><a class="nav-item nav-link active" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></div>
-        </div>
-    </div>
-
-    <div class="collapse navbar-collapse">
-        <div [hidden]="!Aluno" class="navbar-nav">
-            <a class="nav-item nav-link active" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a>
-            <div class="sair"><a class="nav-item nav-link active" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></div>
-        </div>
-    </div>
-
-    <div class="collapse navbar-collapse">
-        <div [hidden]="!Responsavel" class="navbar-nav">
-            <a class="nav-item nav-link active" routerLink="/enquete" routerLinkActive="active">Enquete<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" routerLink="/questionario" routerLinkActive="active">Questionário<span class="sr-only">(current)</span></a>
-            <div class="sair"><a class="nav-item nav-link active" routerLink="/login" (submit)="sair($event)">Sair<span class="sr-only">(current)</span></a></div>
-        </div>
-    </div>
-</nav>-->

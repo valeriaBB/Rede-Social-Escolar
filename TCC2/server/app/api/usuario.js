@@ -1,14 +1,9 @@
 var mongoose = require('mongoose');
-
-
 var api = {}
 var model = mongoose.model('Usuario');
 
-
 api.adiciona = function (c) {
     c["ativo"] = true;
-    console.log("entrou no adiciona do usuario");
-    console.log(c);
     return model.create(c);
 };
 
@@ -36,7 +31,6 @@ api.buscaPorId = function (req, res) {
 };
 
 api.removePorId = function (req, res) {
-
     model
         .findByIdAndUpdate(req.params.id, { ativo: false })
         .then(function (usuario) {
