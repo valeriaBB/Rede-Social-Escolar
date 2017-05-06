@@ -55,8 +55,6 @@ api.adiciona = function (req, res) {
     c["ativo"] = true;
     api.buscaEscolaUsuario(req.usuario.login).then(user => {
         c.id_escola = user.id_escola;
-        console.log(user);
-        console.log("**********user************");
         model
             .create(c)
             .then(function (enquete) {
