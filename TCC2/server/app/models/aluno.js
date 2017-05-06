@@ -18,15 +18,10 @@ var schema = mongoose.Schema({
         type: Number,
         required: true
     },
-    id_escola: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: false
-
-    },
     id_responsavel: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Responsavel',
         required: false
-
     },
     telefone: {
         type: String,
@@ -36,6 +31,11 @@ var schema = mongoose.Schema({
         type: Boolean,
         required: false
     },
+    id_escola: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola',
+        required: false
+    }
 });
 
 mongoose.model('Aluno', schema, 'Aluno', false);

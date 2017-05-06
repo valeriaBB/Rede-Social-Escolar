@@ -22,11 +22,6 @@ var schema = mongoose.Schema({
         type: Number,
         required: true
     },
-    id_escola: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: false
-
-    },
     telefone: {
         type: String,
         required: true
@@ -38,7 +33,7 @@ var schema = mongoose.Schema({
     id_escola: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Escola',
-        required: true
+        required: false
     }
 });
 

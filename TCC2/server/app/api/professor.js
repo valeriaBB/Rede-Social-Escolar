@@ -63,6 +63,7 @@ api.adiciona = function (req, res) {
                     email: req.body.email,
                     senha: req.body.senha,
                     id_professor: professor._id,
+                    id_escola: req.body.id_escola,
                     tipo: 3
                 }).then(usu => {
                     res.json(professor);

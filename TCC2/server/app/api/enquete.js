@@ -1,18 +1,26 @@
 var mongoose = require('mongoose');
-
-
+var modelEscola = mongoose.model('Escola');
 var api = {}
 var model = mongoose.model('Enquete');
+var usuarioModel = require('./usuario');
+var modelUsuario = mongoose.model('Usuario');
 
 api.lista = function (req, res) {
-    model
-        .find({ ativo: true })
-        .then(function (enquetes) {
-            res.json(enquetes);
-        }, function (error) {
-            console.log(error);
-            res.status(500).json(error);
-        });
+    modelUsuario.findOne({ email: req.usuario.login }).then(escola => {
+        if (escola) {
+            model
+                .find({ ativo: true, id_escola: escola.id_escola }).populate("id_escola")
+                .then(function (enquetes) {
+                    res.json(enquetes);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        } else {
+            console.log("Escola a qual a enquete pertence não foi encontrada!");
+        }
+    })
+
 };
 
 api.buscaPorId = function (req, res) {
@@ -28,7 +36,6 @@ api.buscaPorId = function (req, res) {
 };
 
 api.removePorId = function (req, res) {
-
     model
         .findByIdAndUpdate(req.params.id, { ativo: false })
         .then(function (enquete) {
@@ -39,20 +46,26 @@ api.removePorId = function (req, res) {
         });
 };
 
-api.adiciona = function (req, res) {
+api.buscaEscolaUsuario = function (login) {
+    return modelUsuario.findOne({ email: login });
+}
 
-    console.log(req.body);
+api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
-    model
-        .create(c)
-        .then(function (enquete) {
-            res.json(enquete);
-            console.log(c);
-        }, function (error) {
-            console.log(error);
-            res.status(500).json(error);
-        });
+    api.buscaEscolaUsuario(req.usuario.login).then(user => {
+        c.id_escola = user.id_escola;
+        console.log(user);
+        console.log("**********user************");
+        model
+            .create(c)
+            .then(function (enquete) {
+                res.json(enquete);
+            }, function (error) {
+                console.log(error);
+                res.status(500).json(error);
+            });
+    })
 };
 
 api.atualiza = function (req, res) {

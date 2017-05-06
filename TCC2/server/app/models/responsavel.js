@@ -24,13 +24,13 @@ var schema = mongoose.Schema({
     },
     id_escola: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola',
         required: false
-
     },
     id_aluno: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: 'Aluno',
         required: false
-
     },
     telefone: {
         type: String,

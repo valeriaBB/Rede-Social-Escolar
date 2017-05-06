@@ -36,18 +36,22 @@ var schema = mongoose.Schema({
         titulo: String,
         resposta: String
     }],
-   
     ativo: {
         type: Boolean,
         required: false
     },
-
-    respondem: [{
+    id_escola: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola',
+        required: true
+    },
+     respondem: [{
         aluno: Boolean,
         professor:Boolean,
         responsavel:Boolean,
         diretor_escola: Boolean
     }]
+
 });
 
 mongoose.model('Enquete', schema, 'Enquete', false);
