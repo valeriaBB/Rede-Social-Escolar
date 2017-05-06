@@ -35,6 +35,11 @@ var schema = mongoose.Schema({
         type: Boolean,
         required: false
     },
+    id_escola: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Escola',
+        required: true
+    }
 });
 
 mongoose.model('Professor', schema, 'Professor', false);

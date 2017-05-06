@@ -3,16 +3,23 @@ var usuarioModel = require('./usuario');
 var modelUsuario = mongoose.model('Usuario');
 var api = {}
 var model = mongoose.model('Professor');
+var modelEscola = mongoose.model('Escola');
 
 api.lista = function (req, res) {
-    model
-        .find({ ativo: true })
-        .then(function (professores) {
-            res.json(professores);
-        }, function (error) {
-            console.log(error);
-            res.status(500).json(error);
-        });
+    modelUsuario.findOne({ email: req.usuario.login }).then(usuario => {
+        if (usuario) {
+            model
+                .find({ ativo: true, id_escola: usuario.id_escola }).populate("id_escola")
+                .then(function (professores) {
+                    res.json(professores);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                })
+        } else {
+            console.log("Usuário não encontrado!");
+        }
+    })
 };
 
 api.buscaPorId = function (req, res) {
@@ -28,7 +35,6 @@ api.buscaPorId = function (req, res) {
 };
 
 api.removePorId = function (req, res) {
-
     model
         .findByIdAndUpdate(req.params.id, { ativo: false })
         .then(function (professor) {
@@ -39,34 +45,48 @@ api.removePorId = function (req, res) {
         });
 };
 
-api.adiciona = function (req, res) {
+api.buscaEscolaUsuario = function (login) {
+    return modelUsuario.findOne({ email: login });
+}
 
-    console.log(req.body);
+api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
-    model
-        .create(c)
-        .then(function (professor) {
-            usuarioModel.adiciona({
-                nome: req.body.nome,
-                email: req.body.email,
-                senha: req.body.senha,
-                id_professor: professor._id,
-                tipo: 3
-            }).then(usu => {
-                res.json(professor);
+
+    api.buscaEscolaUsuario(req.usuario.login).then(user => {
+        c.id_escola = user.id_escola;
+        model
+            .create(c)
+            .then(function (professor) {
+                usuarioModel.adiciona({
+                    nome: req.body.nome,
+                    email: req.body.email,
+                    senha: req.body.senha,
+                    id_professor: professor._id,
+                    tipo: 3
+                }).then(usu => {
+                    res.json(professor);
+                });
+            }, function (error) {
+                console.log(error);
+                res.status(500).json(error);
             });
-        }, function (error) {
-            console.log(error);
-            res.status(500).json(error);
-        });
+    });
 };
 
 api.atualiza = function (req, res) {
     model
         .findByIdAndUpdate(req.body._id, req.body)
         .then(function (professor) {
-            res.json(professor);
+
+            modelUsuario.findOne({ id_professor: professor._id}).then(usu =>{
+                usu.email = professor.email;
+                usu.nome = professor.nome;
+                usu.senha = professor.senha;
+                modelUsuario.update({_id: usu._id}, usu).then(abc =>{
+                    res.json(professor);
+                })
+            })
         }, function (error) {
             console.log(error);
             res.status(500).json(error);

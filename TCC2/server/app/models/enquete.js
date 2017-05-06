@@ -14,27 +14,27 @@ var schema = mongoose.Schema({
 
     alternativa1: [{
         titulo: String,
-        resposta: Boolean
+        resposta: String
     }],
 
     alternativa2: [{
         titulo: String,
-        resposta: Boolean
+        resposta: String
     }],
 
     alternativa3: [{
         titulo: String,
-        resposta: Boolean
+        resposta: String
     }],
 
     alternativa4: [{
         titulo: String,
-        resposta: Boolean
+        resposta: String
     }],
 
     alternativa5: [{
         titulo: String,
-        resposta: Boolean
+        resposta: String
     }],
    
     ativo: {

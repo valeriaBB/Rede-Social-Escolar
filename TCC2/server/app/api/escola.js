@@ -28,7 +28,6 @@ api.buscaPorId = function (req, res) {
 };
 
 api.removePorId = function (req, res) {
-
     model
         .findByIdAndUpdate(req.params.id, { ativo: false })
         .then(function (escola) {
@@ -39,24 +38,7 @@ api.removePorId = function (req, res) {
         });
 };
 
-// api.adiciona = function (req, res) {
-
-//     console.log(req.body);
-//     var c = req.body;
-//     c["ativo"] = true;
-//     model
-//         .create(c)
-//         .then(function (escola) {
-//             res.json(escola);
-//             console.log(c);
-//         }, function (error) {
-//             console.log(error);
-//             res.status(500).json(error);
-//         });
-// };
-
 api.adiciona = function (req, res) {
-    console.log(req.body);
     var c = req.body;
     c["ativo"] = true;
     model
@@ -81,7 +63,14 @@ api.atualiza = function (req, res) {
     model
         .findByIdAndUpdate(req.body._id, req.body)
         .then(function (escola) {
-            res.json(escola);
+            modelUsuario.findOne({ id_escola: escola._id }).then(usu => {
+                usu.email = escola.email;
+                usu.nome = escola.nome;
+                usu.senha = escola.senha;
+                modelUsuario.update({ _id: usu._id }, usu).then(abc => {
+                    res.json(escola);
+                });
+            })
         }, function (error) {
             console.log(error);
             res.status(500).json(error);

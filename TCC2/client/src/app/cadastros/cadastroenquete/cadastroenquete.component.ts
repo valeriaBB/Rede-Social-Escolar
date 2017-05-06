@@ -17,11 +17,7 @@ export class CadastroenqueteComponent implements OnInit {
   formCadastro: FormGroup;
   enquete = {};
   tipoAcao = "Cadastrar";
-  public alternativa1 = new Alternativa();
-  public alternativa2 = new Alternativa();
-  public alternativa3 = new Alternativa();
-  public alternativa4 = new Alternativa();
-  public alternativa5 = new Alternativa();
+
   public respondem = new Respondem();
 
 
@@ -57,13 +53,7 @@ export class CadastroenqueteComponent implements OnInit {
   }
 
   salvar(event) {
-    console.log("entrou no salvar");
     this.enquete['respondem.aluno'] = this.respondem.aluno;
-    this.alternativa1['titulo'] = this.alternativa1.titulo;
-    this.alternativa2['titulo'] = this.alternativa2.titulo;
-    this.alternativa3['titulo'] = this.alternativa3.titulo;
-    this.alternativa4['titulo'] = this.alternativa4.titulo;
-    this.alternativa5['titulo'] = this.alternativa5.titulo;
     this.service.salvar(this.enquete, 'enquete')
       .subscribe(() => {
         this.router.navigate(['/enquete']);
