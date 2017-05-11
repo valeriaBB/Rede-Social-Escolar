@@ -12,30 +12,30 @@ var schema = mongoose.Schema({
         required: true
     },
 
-    alternativa1: [{
+    alternativa1: {
         titulo: String,
         resposta: String
-    }],
+    },
 
-    alternativa2: [{
+    alternativa2: {
         titulo: String,
         resposta: String
-    }],
+    },
 
-    alternativa3: [{
+    alternativa3: {
         titulo: String,
         resposta: String
-    }],
+    },
 
-    alternativa4: [{
+    alternativa4: {
         titulo: String,
         resposta: String
-    }],
+    },
 
-    alternativa5: [{
+    alternativa5: {
         titulo: String,
         resposta: String
-    }],
+    },
     ativo: {
         type: Boolean,
         required: false
@@ -45,12 +45,12 @@ var schema = mongoose.Schema({
         ref: 'Escola',
         required: true
     },
-     respondem: [{
+     respondem: {
         aluno: Boolean,
         professor:Boolean,
         responsavel:Boolean,
         diretor_escola: Boolean
-    }]
+    }
 
 });
 
