@@ -3,8 +3,6 @@ import { Http, Headers } from '@angular/http';
 import { ServerService } from 'app/services/server/server.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms';
-import { Alternativa } from '../../models/Alternativa';
-import { Respondem } from '../../models/Respondem';
 
 @Component({
   selector: 'app-cadastroenquete',
@@ -17,8 +15,10 @@ export class CadastroenqueteComponent implements OnInit {
   formCadastro: FormGroup;
   enquete = {};
   tipoAcao = "Cadastrar";
-
-  public respondem = new Respondem();
+  aluno = false;
+  professor = false;
+  diretor = false;
+  responsavel = false;
 
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
@@ -32,7 +32,6 @@ export class CadastroenqueteComponent implements OnInit {
       alternativa5: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]]
     });
     var self = this;
-
     this.route = route;
     this.route.params.subscribe(params => {
       var id = params['id'];
@@ -53,7 +52,15 @@ export class CadastroenqueteComponent implements OnInit {
   }
 
   salvar(event) {
-    this.enquete['respondem.aluno'] = this.respondem.aluno;
+    if (this.aluno == true) 
+      this.enquete["aluno"] = true;
+    if (this.diretor == true)
+      this.enquete["diretor"] = true;
+    if (this.responsavel == true) 
+      this.enquete["responsavel"] = true;
+    if (this.professor == true)
+      this.enquete["professor"] = true;
+
     this.service.salvar(this.enquete, 'enquete')
       .subscribe(() => {
         this.router.navigate(['/enquete']);

@@ -34,8 +34,8 @@
 
       <div class="form-group">
         <label>Alternativa 1</label>
-        <input formControlName="alternativa1" name="alternativa1" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa1.titulo"
-          class="form-control" autocomplete="off">
+        <input formControlName="alternativa1" name="alternativa1" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa1"
+          class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa1.invalid">
           <span *ngIf="formCadastro.controls.alternativa1.errors.minlength" class="form-control alert-danger">
              Alternativa 1 da enquete deve ter no mínimo 3 caracteres
@@ -48,8 +48,8 @@
 
       <div class="form-group">
         <label>Alternativa 2</label>
-        <input formControlName="alternativa2" name="alternativa2" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa2.titulo"
-          class="form-control" autocomplete="off">
+        <input formControlName="alternativa2" name="alternativa2" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa2"
+          class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa2.invalid">
           <span *ngIf="formCadastro.controls.alternativa2.errors.minlength" class="form-control alert-danger">
              Alternativa 2 da enquete deve ter no mínimo 3 caracteres
@@ -62,8 +62,8 @@
 
       <div class="form-group">
         <label>Alternativa 3</label>
-        <input formControlName="alternativa3" name="alternativa3" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa3.titulo"
-          class="form-control" autocomplete="off">
+        <input formControlName="alternativa3" name="alternativa3" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa3"
+          class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa3.invalid">
           <span *ngIf="formCadastro.controls.alternativa3.errors.minlength" class="form-control alert-danger">
              Alternativa 3 da enquete deve ter no mínimo 3 caracteres
@@ -76,8 +76,8 @@
 
       <div class="form-group">
         <label>Alternativa 4</label>
-        <input formControlName="alternativa4" name="alternativa4" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa4.titulo"
-          class="form-control" autocomplete="off">
+        <input formControlName="alternativa4" name="alternativa4" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa4"
+          class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa4.invalid">
           <span *ngIf="formCadastro.controls.alternativa4.errors.minlength" class="form-control alert-danger">
              Alternativa 4 da enquete deve ter no mínimo 3 caracteres
@@ -90,8 +90,8 @@
 
       <div class="form-group">
         <label>Alternativa 5</label>
-        <input formControlName="alternativa5" name="alternativa5" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="alternativa5.titulo"
-          class="form-control" autocomplete="off">
+        <input formControlName="alternativa5" name="alternativa5" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa5"
+          class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa5.invalid">
           <span *ngIf="formCadastro.controls.alternativa5.errors.minlength" class="form-control alert-danger">
              Alternativa 5 da enquete deve ter no mínimo 3 caracteres
@@ -101,23 +101,11 @@
           </span>
         </div>
       </div>
-
-      <!--<div class="form-group" formGroupName="respondem">
-        <label>Destina-se há:</label>
-        <div class="checkbox">
-          <label><input formControlName="aluno" type="checkbox" value="alunos" [(ngModel)]="respondem.aluno">Alunos</label>
-        </div>
-        <div class="checkbox">
-          <label><input formControlName="professor" type="checkbox" value="professores" [(ngModel)]="respondem.professor">Professores</label>
-        </div>
-        <div class="checkbox">
-          <label><input formControlName="responsavel" type="checkbox" value="responsaveis" [(ngModel)]="respondem.responsavel">Responsáveis</label>
-        </div>
-        <div class="checkbox">
-          <label><input formControlName="diretor_escola" type="checkbox" value="diretor_escola" [(ngModel)]="respondem.diretor_escola">Diretor(a) Escolar</label>
-        </div>
-      </div>-->
-
+      <label>Destina-se há:</label>
+      <label><input #alunocb type="checkbox" (change)="aluno = alunocb.checked">Alunos</label>
+      <label><input #professorcb type="checkbox" (change)="professor = professorcb.checked">Professores</label>
+      <label><input #responsavelcb type="checkbox" (change)="responsavel = responsavelcb.checked">Responsaveis</label>
+      <label><input #diretorcb type="checkbox" (change)="diretor = diretorcb.checked">Diretor</label>
       <div class=" botoes row">
         <div class="col-md-12">
           <input type="submit" class="btn btnNovo pull-right" value="Enviar" />

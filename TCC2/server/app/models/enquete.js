@@ -1,40 +1,69 @@
 var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
-
-    nome_enquete: {
+    nome: {
         type: String,
         required: true
     },
-
     pergunta: {
         type:String,
         required: true
     },
-
     alternativa1: {
-        titulo: String,
-        resposta: String
+        type: String,
+        required: true
     },
-
     alternativa2: {
-        titulo: String,
-        resposta: String
+        type: String,
+        required: true
     },
-
     alternativa3: {
-        titulo: String,
-        resposta: String
+        type: String,
+        required: false
     },
-
     alternativa4: {
-        titulo: String,
-        resposta: String
+        type: String,
+        required: false
     },
-
     alternativa5: {
-        titulo: String,
-        resposta: String
+        type: String,
+        required: false
+    },
+    resposta1: {
+        type: Boolean,
+        required: false
+    },
+    resposta2: {
+        type: Boolean,
+        required: false
+    },
+    resposta3: {
+        type: Boolean,
+        required: false
+    },
+    resposta4: {
+        type: Boolean,
+        required: false
+    },
+    resposta5: {
+        type: Boolean,
+        required: false
+    },
+    professor: {
+        type: Boolean,
+        required: false
+    },
+    aluno: {
+        type: Boolean,
+        required: false
+    },
+    responsavel: {
+        type: Boolean,
+        required: false
+    },
+    escola: {
+        type: Boolean,
+        required: false
     },
     ativo: {
         type: Boolean,
@@ -43,15 +72,8 @@ var schema = mongoose.Schema({
     id_escola: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Escola',
-        required: true
-    },
-     respondem: {
-        aluno: Boolean,
-        professor:Boolean,
-        responsavel:Boolean,
-        diretor_escola: Boolean
+        required: false
     }
-
 });
 
 mongoose.model('Enquete', schema, 'Enquete', false);
