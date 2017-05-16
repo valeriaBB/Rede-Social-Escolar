@@ -17,17 +17,17 @@
       <h5>Enquetes Ativas</h5>
       <div class="enquete col-md-6">
         <table class="table table-striped">
-          <tbody>
+          <tbody *ngFor="let c of enquetes">
             <tr>
               <td>Título:</td>
-              <td>Choices about your child's schooling</td>
+              <td>{{c.nome}}</td>
             </tr>
             <tr>
               <td>Pergunta:</td>
-              <td>How confident are you in your ability to make choices about your child's schooling?</td>
+              <td>{{c.pergunta}}</td>
             </tr>
             <tr>
-              <a routerLink="/responderenquete/0" class="btn btnNovo">Responder</a>
+              <a [routerLink]="['/responderenquete/', c._id]" class="btn btnNovo">Responder</a>
             </tr>
           </tbody>
         </table>
