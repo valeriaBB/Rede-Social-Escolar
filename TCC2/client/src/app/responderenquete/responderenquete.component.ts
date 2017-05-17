@@ -17,11 +17,13 @@ export class ResponderenqueteComponent implements OnInit {
   resposta3 = false;
   resposta4 = false;
   resposta5 = false;
+  tipo?: any;
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({});
     var self = this;
     this.route = route;
+    this.tipo = this.service.verificaTipo();
     this.route.params.subscribe(params => {
       var id = params['id'];
 
@@ -33,7 +35,22 @@ export class ResponderenqueteComponent implements OnInit {
           );
       }
     });
-    this.http = http;
+    
+    /*verificar se o usuário que esta tentando acessar a enquete tem permissão para responder*/
+        // if(((this.tipo == 2 && self.enquete["escola"]== true)||
+        //     (((this.tipo == 3 && self.enquete["professor"]== true))||
+        //       ((this.tipo == 4 && self.enquete["aluno"]== true))||
+        //         (this.tipo == 5 && self.enquete["responsavel"]== true)))){
+        //         this.http = http; 
+        //         console.log(self.enquete["escola"]);
+        //         console.log(self.enquete["professor"]);
+        //         console.log(self.enquete["aluno"]);
+        //         console.log(self.enquete["responsavel"]);
+        // }else {
+        //   console.log("Você não tem acesso a essa enquete!");
+        // }
+
+        this.http = http; 
   }
 
   ngOnInit() {
