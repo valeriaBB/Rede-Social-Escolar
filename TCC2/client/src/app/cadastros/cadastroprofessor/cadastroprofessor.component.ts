@@ -41,6 +41,8 @@ export class CadastroprofessorComponent implements OnInit {
           res => self.professor = res.json(),
           erro => console.log(erro)
           );
+          console.log(self.professor);
+          console.log(this.professor);
       }
     });
 

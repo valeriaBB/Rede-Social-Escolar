@@ -1,6 +1,42 @@
-<app-header> </app-header>
+<app-header></app-header>
 <div class="container">
-    <div class="row">
-    <span> </span>
+  <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
+    <div class="col-md-12">
+
+      <div class="form-group titulo">
+        <label>{{enquete.nome}}</label>
+      </div>
+
+      <div class="form-group pergunta">
+        <label>{{enquete.pergunta}}</label>
+      </div>
+
+      <div class="form-group opc">
+        <label><input #resposta1cb type="checkbox" (change)="resposta1 = resposta1cb.checked">{{enquete.alternativa1}}</label>
+      </div>
+
+      <div class="form-group opc">
+        <label><input #resposta2cb type="checkbox" (change)="resposta2 = resposta2cb.checked">{{enquete.alternativa2}}</label>
+      </div>
+
+      <div class="form-group opc">
+        <label><input #resposta3cb type="checkbox" (change)="resposta3 = resposta3cb.checked">{{enquete.alternativa3}}</label>
+      </div>
+
+      <div class="form-group opc">
+        <label><input #resposta4cb type="checkbox" (change)="resposta4 = resposta4cb.checked">{{enquete.alternativa4}}</label>
+      </div>
+
+      <div class="form-group opc">
+        <label><input #resposta5cb type="checkbox" (change)="resposta5 = resposta5cb.checked">{{enquete.alternativa5}}</label>
+      </div>
+
+      <div class=" botoes row">
+        <div class="col-md-12">
+          <input type="submit" class="btn btnNovo pull-right" value="Enviar" />
+          <div class="btn btnNovo pull-left" routerLink="/principal">Voltar</div>
+        </div>
+      </div>
     </div>
+  </form>
 </div>

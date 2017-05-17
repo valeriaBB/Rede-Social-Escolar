@@ -7,14 +7,19 @@
     left: 0;
 }
 
-.enquete{
-    width: 100%;
+.titulo{
     text-align: center;
-    font-size:25px;
-    margin:10px;
+    margin: 10px;
+    font-size: 25px;
 }
 
-.alternativas{
-    font-size:20px;
-    margin:10px 0 10px 0;
+.pergunta{
+    margin: 10px;
+    font-size: 20px; 
+}
+
+.opc{
+    font-size: 17px;
+    text-align: justify;
+    margin: 10px;
 }

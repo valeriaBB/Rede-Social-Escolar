@@ -8,3 +8,16 @@
 .tituloEnquetes{
     font-size: 14px;
 }
+.btnResponder{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.tituloGrafico{
+    text-align: center;
+}
+.enquete{
+    min-height: 350px;
+}
+h5{
+    margin-left: 15px;
+}

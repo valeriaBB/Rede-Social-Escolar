@@ -7,8 +7,7 @@ import { ChartsModule } from 'ng2-charts';
   styleUrls: ['./grafico.component.css']
 })
 export class GraficoComponent implements OnInit {
-  public doughnutChartLabels:string[] = ['Opnião 1', 'Opinião 2','Opinião 3', 'Opinião 4'];
-  public doughnutChartData:number[] = [350, 450, 100, 100];
+  public doughnutChartData:number[] = [20, 20, 20, 20, 20];
   public doughnutChartType:string = 'doughnut';
   
   constructor() {
