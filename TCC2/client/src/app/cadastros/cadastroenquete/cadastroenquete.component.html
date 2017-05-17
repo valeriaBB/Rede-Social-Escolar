@@ -20,14 +20,14 @@
 
       <div class="form-group">
         <label>Pergunta</label>
-        <input formControlName="pergunta" name="pergunta" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.pergunta"
+        <input formControlName="pergunta" name="pergunta" ngModel minlength="3" ngModel maxlength="360" [(ngModel)]="enquete.pergunta"
           class="form-control" autocomplete="off">
         <div *ngIf="formCadastro.controls.pergunta.invalid">
           <span *ngIf="formCadastro.controls.pergunta.errors.minlength" class="form-control alert-danger">
              Pergunta da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.pergunta.errors.maxlength" class="form-control alert-danger">
-            Pergunta da enquete deve ter no máximo 60 caracteres
+            Pergunta da enquete deve ter no máximo 360 caracteres
           </span>
         </div>
       </div>
