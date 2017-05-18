@@ -11,6 +11,7 @@ export class ServerService {
   URL = "http://localhost:3000/"
   public token: string;
   public user: UsuarioLogado;
+  static id_user;
   constructor(private http: Http, private router: Router) {
     this.token = localStorage.getItem("__token");
   }
@@ -24,6 +25,7 @@ export class ServerService {
     nome = JSON.stringify(nome);
     email = JSON.stringify(email);
     tipo = tipo;
+    ServerService.id_user = id;
     this.userLogado = new UsuarioLogado(id, nome, email, tipo);
   }
   
@@ -76,6 +78,9 @@ export class ServerService {
   }
 
   public salvar(obj, url) {
+    console.log("entrou no salvar");
+    console.log(obj);
+    console.log(url);
     event.preventDefault();
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

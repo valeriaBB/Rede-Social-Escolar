@@ -12,18 +12,18 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
 export class ResponderenqueteComponent implements OnInit {
  formCadastro: FormGroup;
   enquete = {};
+  enquete_usuario = {};
+  usuario = {};
   resposta1 = false;
   resposta2 = false;
   resposta3 = false;
   resposta4 = false;
   resposta5 = false;
-  tipo?: any;
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({});
     var self = this;
     this.route = route;
-    this.tipo = this.service.verificaTipo();
     this.route.params.subscribe(params => {
       var id = params['id'];
 
@@ -35,39 +35,32 @@ export class ResponderenqueteComponent implements OnInit {
           );
       }
     });
-    
-    /*verificar se o usuário que esta tentando acessar a enquete tem permissão para responder*/
-        // if(((this.tipo == 2 && self.enquete["escola"]== true)||
-        //     (((this.tipo == 3 && self.enquete["professor"]== true))||
-        //       ((this.tipo == 4 && self.enquete["aluno"]== true))||
-        //         (this.tipo == 5 && self.enquete["responsavel"]== true)))){
-        //         this.http = http; 
-        //         console.log(self.enquete["escola"]);
-        //         console.log(self.enquete["professor"]);
-        //         console.log(self.enquete["aluno"]);
-        //         console.log(self.enquete["responsavel"]);
-        // }else {
-        //   console.log("Você não tem acesso a essa enquete!");
-        // }
-
         this.http = http; 
   }
 
   ngOnInit() {
+    this.usuario["_id"] = ServerService.id_user;
   }
 
   salvar(event) {
      if (this.resposta1 == true) 
-      this.enquete["resposta1"] = true;
+      this.enquete_usuario["resposta1"] = true;
     if (this.resposta2 == true)
-      this.enquete["resposta2"] = true;
+      this.enquete_usuario["resposta2"] = true;
     if (this.resposta3 == true) 
-      this.enquete["resposta3"] = true;
+      this.enquete_usuario["resposta3"] = true;
     if (this.resposta4 == true)
-      this.enquete["resposta4"] = true;
+      this.enquete_usuario["resposta4"] = true;
       if (this.resposta5 == true)
-      this.enquete["resposta5"] = true;
-    this.service.salvar(this.enquete, 'enquete')
+      this.enquete_usuario["resposta5"] = true;
+     
+      var teste = ServerService.id_user.replace('"',"");
+      var teste2 = teste.replace('"',"");
+      this.enquete_usuario["id_usuario"] = teste2;
+      this.enquete_usuario["id_enquete"] = this.enquete["_id"];
+      this.enquete_usuario["pergunta"] = this.enquete["pergunta"];
+
+    this.service.salvar(this.enquete_usuario, 'enquete_usuario')
       .subscribe(() => {
         this.router.navigate(['/principal']);
       }, erro => console.log(erro));

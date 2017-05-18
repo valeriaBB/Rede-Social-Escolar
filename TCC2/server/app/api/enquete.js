@@ -2,7 +2,9 @@ var mongoose = require('mongoose');
 var modelEscola = mongoose.model('Escola');
 var api = {}
 var model = mongoose.model('Enquete');
+var modelEnqueteUsuario = mongoose.model('Enquete_usuario');
 var usuarioModel = require('./usuario');
+var enqueteUsuarioModel = require('./enquete_usuario');
 var modelUsuario = mongoose.model('Usuario');
 
 api.lista = function (req, res) {
@@ -50,6 +52,22 @@ api.buscaEscolaUsuario = function (login) {
     return modelUsuario.findOne({ email: login });
 }
 
+// api.adiciona = function (req, res) {
+//     var c = req.body;
+//     c["ativo"] = true;
+//     api.buscaEscolaUsuario(req.usuario.login).then(user => {
+//         c.id_escola = user.id_escola;
+//         model
+//             .create(c)
+//             .then(function (enquete) {
+//                 res.json(enquete);
+//             }, function (error) {
+//                 console.log(error);
+//                 res.status(500).json(error);
+//             });
+//     })
+// };
+
 api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
@@ -59,6 +77,17 @@ api.adiciona = function (req, res) {
             .create(c)
             .then(function (enquete) {
                 res.json(enquete);
+                // enqueteUsuarioModel.adiciona({
+                //     id_enquete: req.body._id,
+                //     pergunta:req.body.pergunta,
+                //     resposta1:false,
+                //     resposta2:false,
+                //     resposta3:false,
+                //     resposta4:false,
+                //     resposta5:false,
+                // }).then(usu => {
+                //     res.json(enquete);
+                // });
             }, function (error) {
                 console.log(error);
                 res.status(500).json(error);

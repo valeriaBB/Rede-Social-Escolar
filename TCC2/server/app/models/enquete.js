@@ -29,26 +29,6 @@ var schema = mongoose.Schema({
         type: String,
         required: false
     },
-    resposta1: {
-        type: Boolean,
-        required: false
-    },
-    resposta2: {
-        type: Boolean,
-        required: false
-    },
-    resposta3: {
-        type: Boolean,
-        required: false
-    },
-    resposta4: {
-        type: Boolean,
-        required: false
-    },
-    resposta5: {
-        type: Boolean,
-        required: false
-    },
     professor: {
         type: Boolean,
         required: false
