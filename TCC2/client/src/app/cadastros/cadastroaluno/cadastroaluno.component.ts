@@ -19,8 +19,8 @@ export class CadastroalunoComponent implements OnInit {
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({
-      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
-      email: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(5)])]],
+      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      email: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(5)])]],
       senha: ['', [Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(6)])]],
       idade: ['', [Validators.compose([Validators.required, Validators.maxLength(3), Validators.minLength(1)])]],
       telefone: ['', [Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(6)])]]

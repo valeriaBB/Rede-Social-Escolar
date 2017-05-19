@@ -12,13 +12,21 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
 export class CadastroquestionarioComponent implements OnInit {
 
   formCadastro: FormGroup;
- 
   questionario = {};
   tipoAcao = "Cadastrar";
+  aluno = false;
+  professor = false;
+  diretor = false;
+  responsavel = false;
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({
-      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]]
+      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      pergunta1: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      pergunta2: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      pergunta3: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      pergunta4: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      pergunta5: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]]
     });
 
     var self = this;
@@ -45,6 +53,14 @@ export class CadastroquestionarioComponent implements OnInit {
   }
   
   salvar(event) {
+    if (this.aluno == true) 
+      this.questionario["aluno"] = true;
+    if (this.diretor == true)
+      this.questionario["diretor"] = true;
+    if (this.responsavel == true) 
+      this.questionario["responsavel"] = true;
+    if (this.professor == true)
+      this.questionario["professor"] = true;
     this.service.salvar(this.questionario, 'questionario')
       .subscribe(() => {
         this.router.navigate(['/questionario']);

@@ -23,13 +23,13 @@ export class CadastroenqueteComponent implements OnInit {
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({
-      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(40), Validators.minLength(3)])]],
-      pergunta: ['', [Validators.compose([Validators.required, Validators.maxLength(360), Validators.minLength(3)])]],
-      alternativa1: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
-      alternativa2: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
-      alternativa3: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
-      alternativa4: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
-      alternativa5: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]]
+      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
+      pergunta: ['', [Validators.compose([Validators.required, Validators.maxLength(1000), Validators.minLength(3)])]],
+      alternativa1: ['', [Validators.compose([Validators.required, Validators.maxLength(1000), Validators.minLength(3)])]],
+      alternativa2: ['', [Validators.compose([Validators.required, Validators.maxLength(1000), Validators.minLength(3)])]],
+      alternativa3: ['', [Validators.compose([Validators.required, Validators.maxLength(1000), Validators.minLength(3)])]],
+      alternativa4: ['', [Validators.compose([Validators.required, Validators.maxLength(1000), Validators.minLength(3)])]],
+      alternativa5: ['', [Validators.compose([Validators.required, Validators.maxLength(1000), Validators.minLength(3)])]]
     });
     var self = this;
     this.route = route;

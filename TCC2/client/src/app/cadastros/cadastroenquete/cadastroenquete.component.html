@@ -6,7 +6,7 @@
 
       <div class="form-group">
         <label>Título Enquete</label>
-        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="40" [(ngModel)]="enquete.nome" class="form-control"
+        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="enquete.nome" class="form-control"
           autocomplete="off">
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
@@ -20,84 +20,84 @@
 
       <div class="form-group">
         <label>Pergunta</label>
-        <input formControlName="pergunta" name="pergunta" ngModel minlength="3" ngModel maxlength="360" [(ngModel)]="enquete.pergunta"
+        <input formControlName="pergunta" name="pergunta" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="enquete.pergunta"
           class="form-control" autocomplete="off">
         <div *ngIf="formCadastro.controls.pergunta.invalid">
           <span *ngIf="formCadastro.controls.pergunta.errors.minlength" class="form-control alert-danger">
              Pergunta da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.pergunta.errors.maxlength" class="form-control alert-danger">
-            Pergunta da enquete deve ter no máximo 360 caracteres
+            Pergunta da enquete deve ter no máximo 1000 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Alternativa 1</label>
-        <input formControlName="alternativa1" name="alternativa1" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa1"
+        <input formControlName="alternativa1" name="alternativa1" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="enquete.alternativa1"
           class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa1.invalid">
           <span *ngIf="formCadastro.controls.alternativa1.errors.minlength" class="form-control alert-danger">
              Alternativa 1 da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.alternativa1.errors.maxlength" class="form-control alert-danger">
-            Alternativa 1 da enquete deve ter no máximo 60 caracteres
+            Alternativa 1 da enquete deve ter no máximo 1000 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Alternativa 2</label>
-        <input formControlName="alternativa2" name="alternativa2" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa2"
+        <input formControlName="alternativa2" name="alternativa2" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="enquete.alternativa2"
           class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa2.invalid">
           <span *ngIf="formCadastro.controls.alternativa2.errors.minlength" class="form-control alert-danger">
              Alternativa 2 da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.alternativa2.errors.maxlength" class="form-control alert-danger">
-            Alternativa 2 da enquete deve ter no máximo 60 caracteres
+            Alternativa 2 da enquete deve ter no máximo 1000 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Alternativa 3</label>
-        <input formControlName="alternativa3" name="alternativa3" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa3"
+        <input formControlName="alternativa3" name="alternativa3" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="enquete.alternativa3"
           class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa3.invalid">
           <span *ngIf="formCadastro.controls.alternativa3.errors.minlength" class="form-control alert-danger">
              Alternativa 3 da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.alternativa3.errors.maxlength" class="form-control alert-danger">
-            Alternativa 3 da enquete deve ter no máximo 60 caracteres
+            Alternativa 3 da enquete deve ter no máximo 1000 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Alternativa 4</label>
-        <input formControlName="alternativa4" name="alternativa4" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa4"
+        <input formControlName="alternativa4" name="alternativa4" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="enquete.alternativa4"
           class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa4.invalid">
           <span *ngIf="formCadastro.controls.alternativa4.errors.minlength" class="form-control alert-danger">
              Alternativa 4 da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.alternativa4.errors.maxlength" class="form-control alert-danger">
-            Alternativa 4 da enquete deve ter no máximo 60 caracteres
+            Alternativa 4 da enquete deve ter no máximo 1000 caracteres
           </span>
         </div>
       </div>
 
       <div class="form-group">
         <label>Alternativa 5</label>
-        <input formControlName="alternativa5" name="alternativa5" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="enquete.alternativa5"
+        <input formControlName="alternativa5" name="alternativa5" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="enquete.alternativa5"
           class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.alternativa5.invalid">
           <span *ngIf="formCadastro.controls.alternativa5.errors.minlength" class="form-control alert-danger">
              Alternativa 5 da enquete deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.alternativa5.errors.maxlength" class="form-control alert-danger">
-            Alternativa 5 da enquete deve ter no máximo 60 caracteres
+            Alternativa 5 da enquete deve ter no máximo 1000 caracteres
           </span>
         </div>
       </div>

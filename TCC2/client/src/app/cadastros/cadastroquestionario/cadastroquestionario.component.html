@@ -5,18 +5,93 @@
     <div class="col-md-6">
 
       <div class="form-group">
-        <label>Nome</label>
-        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="questionario.nome" class="form-control" autocomplete="off">
+        <label>Título</label>
+        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="questionario.nome" class="form-control"
+          autocomplete="off">
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
-             Nome do questionário deve ter no mínimo 3 caracteres
+             Título do questionário deve ter no mínimo 3 caracteres
           </span>
           <span *ngIf="formCadastro.controls.nome.errors.maxlength" class="form-control alert-danger">
-            Nome do questionário deve ter no máximo 60 caracteres
+            Título do questionário deve ter no máximo 60 caracteres
           </span>
         </div>
       </div>
 
+      <div class="form-group">
+        <label>Pergunta 1</label>
+        <input formControlName="pergunta1" name="pergunta1" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="questionario.pergunta1" class="form-control"
+          autocomplete="off">
+        <div *ngIf="formCadastro.controls.pergunta1.invalid">
+          <span *ngIf="formCadastro.controls.pergunta1.errors.minlength" class="form-control alert-danger">
+             Pergunta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.pergunta1.errors.maxlength" class="form-control alert-danger">
+            Pergunta deve ter no máximo 500 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Pergunta 2</label>
+        <input formControlName="pergunta2" name="pergunta2" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="questionario.pergunta2" class="form-control"
+          autocomplete="off">
+        <div *ngIf="formCadastro.controls.pergunta2.invalid">
+          <span *ngIf="formCadastro.controls.pergunta2.errors.minlength" class="form-control alert-danger">
+             Pergunta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.pergunta2.errors.maxlength" class="form-control alert-danger">
+            Pergunta deve ter no máximo 500 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Pergunta 3</label>
+        <input formControlName="pergunta3" name="pergunta3" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="questionario.pergunta3" class="form-control"
+          autocomplete="off">
+        <div *ngIf="formCadastro.controls.pergunta3.invalid">
+          <span *ngIf="formCadastro.controls.pergunta3.errors.minlength" class="form-control alert-danger">
+             Pergunta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.pergunta3.errors.maxlength" class="form-control alert-danger">
+            Pergunta deve ter no máximo 500 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Pergunta 4</label>
+        <input formControlName="pergunta4" name="pergunta4" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="questionario.pergunta4" class="form-control"
+          autocomplete="off">
+        <div *ngIf="formCadastro.controls.pergunta4.invalid">
+          <span *ngIf="formCadastro.controls.pergunta4.errors.minlength" class="form-control alert-danger">
+             Pergunta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.pergunta4.errors.maxlength" class="form-control alert-danger">
+            Pergunta deve ter no máximo 500 caracteres
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Pergunta 5</label>
+        <input formControlName="pergunta5" name="pergunta5" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="questionario.pergunta5" class="form-control"
+          autocomplete="off">
+        <div *ngIf="formCadastro.controls.pergunta5.invalid">
+          <span *ngIf="formCadastro.controls.pergunta5.errors.minlength" class="form-control alert-danger">
+             Pergunta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.pergunta5.errors.maxlength" class="form-control alert-danger">
+            Pergunta deve ter no máximo 500 caracteres
+          </span>
+        </div>
+      </div>
+      <label>Destina-se há:</label>
+      <label class="respondem"><input #alunocb type="checkbox" (change)="aluno = alunocb.checked">Alunos</label>
+      <label class="respondem"><input #professorcb type="checkbox" (change)="professor = professorcb.checked">Professores</label>
+      <label class="respondem"><input #responsavelcb type="checkbox" (change)="responsavel = responsavelcb.checked">Responsaveis</label>
+      <label class="respondem"><input #diretorcb type="checkbox" (change)="diretor = diretorcb.checked">Diretor</label>
       <div class=" botoes row">
         <div class="col-md-12">
           <input type="submit" class="btn btnNovo pull-right" value="Salvar" />

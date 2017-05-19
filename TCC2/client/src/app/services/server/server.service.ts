@@ -78,9 +78,6 @@ export class ServerService {
   }
 
   public salvar(obj, url) {
-    console.log("entrou no salvar");
-    console.log(obj);
-    console.log(url);
     event.preventDefault();
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

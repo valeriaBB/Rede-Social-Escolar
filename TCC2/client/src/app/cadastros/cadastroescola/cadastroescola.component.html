@@ -6,7 +6,7 @@
 
       <div class="form-group">
         <label>Escola</label>
-        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="escola.nome" class="form-control" autocomplete="off" required>
+        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="escola.nome" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
             Escola deve ter no mínimo 3 caracteres
@@ -84,7 +84,7 @@
 
       <div class="form-group">
         <label>Rua</label>
-        <input formControlName="rua" name="rua" ngModel minlength="3" ngModel maxlength="60" [(ngModel)]="escola.rua" class="form-control" autocomplete="off" required>
+        <input formControlName="rua" name="rua" ngModel minlength="3" ngModel maxlength="500" [(ngModel)]="escola.rua" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.rua.invalid">
           <span *ngIf="formCadastro.controls.rua.errors.minlength" class="form-control alert-danger">
             Rua deve ter no mínimo 3 caracteres

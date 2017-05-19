@@ -20,7 +20,7 @@ export class CadastroresponsavelComponent implements OnInit {
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
 
     this.formCadastro = fb.group({
-      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
+      nome: ['', [Validators.compose([Validators.required, Validators.maxLength(500), Validators.minLength(3)])]],
       email: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],
       senha: ['', [Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(6)])]],
       formacao: ['', [Validators.compose([Validators.required, Validators.maxLength(60), Validators.minLength(3)])]],

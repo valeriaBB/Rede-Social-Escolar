@@ -6,7 +6,7 @@
 
       <div class="form-group">
         <label>Nome</label>
-        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="60"  [(ngModel)]="responsavel.nome" class="form-control" autocomplete="off" required>
+        <input formControlName="nome" name="nome" ngModel minlength="3" ngModel maxlength="500"  [(ngModel)]="responsavel.nome" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.nome.invalid">
           <span *ngIf="formCadastro.controls.nome.errors.minlength" class="form-control alert-danger">
             Nome deve ter no mínimo 3 caracteres

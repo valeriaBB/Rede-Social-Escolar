@@ -21,10 +21,8 @@ export class QuestionarioComponent implements OnInit {
   }
 
    public remove(questionario: any) {
-
     var url = 'questionario/';
     var self = this;
-
     this.service.remove(questionario, url).subscribe(function () {
       self.questionarios = self.questionarios.filter(c => c._id != questionario._id)
     });

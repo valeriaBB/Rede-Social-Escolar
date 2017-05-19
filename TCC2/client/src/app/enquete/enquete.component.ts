@@ -20,10 +20,8 @@ export class EnqueteComponent implements OnInit {
   }
 
    public remove(enquete: any) {
-
     var url = 'enquete/';
     var self = this;
-
     this.service.remove(enquete, url).subscribe(function () {
       self.enquetes = self.enquetes.filter(c => c._id != enquete._id)
     });
