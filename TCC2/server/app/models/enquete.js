@@ -53,6 +53,10 @@ var schema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Escola',
         required: false
+    },
+    id_criador: {
+        type: String,
+        required: false
     }
 });
 

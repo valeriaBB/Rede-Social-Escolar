@@ -46,7 +46,7 @@ api.removePorId = function (req, res) {
             console.log(error);
             res.status(500).json(error);
         });
-};
+}
 
 api.buscaEscolaUsuario = function (login) {
     return modelUsuario.findOne({ email: login });
@@ -71,6 +71,7 @@ api.buscaEscolaUsuario = function (login) {
 api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
+    c["id_criador"] = req.usuario.login;
     api.buscaEscolaUsuario(req.usuario.login).then(user => {
         c.id_escola = user.id_escola;
         model
