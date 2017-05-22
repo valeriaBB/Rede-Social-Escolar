@@ -15,7 +15,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getAny('enquete').subscribe(res => {
+    this.service.getAny('todasEnquetes').subscribe(res => {
       this.enquetes = res;
     })
   }

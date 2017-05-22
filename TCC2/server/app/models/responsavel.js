@@ -40,6 +40,10 @@ var schema = mongoose.Schema({
         type: Boolean,
         required: false
     },
+    id_criador: {
+        type: String,
+        required: false
+    }
 });
 
 mongoose.model('Responsavel', schema, 'Responsavel', false);

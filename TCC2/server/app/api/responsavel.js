@@ -9,7 +9,7 @@ api.lista = function (req, res) {
     modelUsuario.findOne({ email: req.usuario.login }).then(usuario => {
         if (usuario) {
             model
-                .find({ ativo: true, id_escola: usuario.id_escola }).populate("id_escola")
+                .find({ ativo: true, id_escola: usuario.id_escola, id_criador: usuario.email }).populate("id_escola")
                 .then(function (responsaveis) {
                     res.json(responsaveis);
                 }, function (error) {
@@ -52,7 +52,7 @@ api.buscaEscolaUsuario = function (login) {
 api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
-
+    c["id_criador"] = req.usuario.login;
     api.buscaEscolaUsuario(req.usuario.login).then(user => {
         c.id_escola = user.id_escola;
         model

@@ -11,7 +11,7 @@ api.lista = function (req, res) {
     modelUsuario.findOne({ email: req.usuario.login }).then(escola => {
         if (escola) {
             model
-                .find({ ativo: true, id_escola: escola.id_escola }).populate("id_escola")
+                .find({ ativo: true, id_escola: escola.id_escola, id_criador: escola.email }).populate("id_escola")
                 .then(function (enquetes) {
                     res.json(enquetes);
                 }, function (error) {
@@ -22,7 +22,6 @@ api.lista = function (req, res) {
             console.log("Escola a qual a enquete pertence não foi encontrada!");
         }
     })
-
 };
 
 api.buscaPorId = function (req, res) {
@@ -52,22 +51,6 @@ api.buscaEscolaUsuario = function (login) {
     return modelUsuario.findOne({ email: login });
 }
 
-// api.adiciona = function (req, res) {
-//     var c = req.body;
-//     c["ativo"] = true;
-//     api.buscaEscolaUsuario(req.usuario.login).then(user => {
-//         c.id_escola = user.id_escola;
-//         model
-//             .create(c)
-//             .then(function (enquete) {
-//                 res.json(enquete);
-//             }, function (error) {
-//                 console.log(error);
-//                 res.status(500).json(error);
-//             });
-//     })
-// };
-
 api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
@@ -78,17 +61,6 @@ api.adiciona = function (req, res) {
             .create(c)
             .then(function (enquete) {
                 res.json(enquete);
-                // enqueteUsuarioModel.adiciona({
-                //     id_enquete: req.body._id,
-                //     pergunta:req.body.pergunta,
-                //     resposta1:false,
-                //     resposta2:false,
-                //     resposta3:false,
-                //     resposta4:false,
-                //     resposta5:false,
-                // }).then(usu => {
-                //     res.json(enquete);
-                // });
             }, function (error) {
                 console.log(error);
                 res.status(500).json(error);

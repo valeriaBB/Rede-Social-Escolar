@@ -1,25 +1,34 @@
 var mongoose = require('mongoose');
-
-
+var modelEscola = mongoose.model('Escola');
 var api = {}
 var model = mongoose.model('Questionario');
+var modelQuestionarioUsuario = mongoose.model('Questionario_usuario');
+var usuarioModel = require('./usuario');
+var questionarioUsuarioModel = require('./questionario_usuario');
+var modelUsuario = mongoose.model('Usuario');
 
 api.lista = function (req, res) {
-    model
-        .find({ ativo: true })
-        .then(function (questionarios) {
-            res.json(questionarios);
-        }, function (error) {
-            console.log(error);
-            res.status(500).json(error);
-        });
+    modelUsuario.findOne({ email: req.usuario.login }).then(escola => {
+        if (escola) {
+            model
+                .find({ ativo: true, id_escola: escola.id_escola, id_criador: escola.email }).populate("id_escola")
+                .then(function (questionarios) {
+                    res.json(questionarios);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        } else {
+            console.log("Escola a qual o questionario pertence não foi encontrada!");
+        }
+    })
 };
 
 api.buscaPorId = function (req, res) {
     model
         .find({ _id: req.params.id, ativo: true })
         .then(function (questionario) {
-            if (!questionario) throw Error('Questionario não encontrado');
+            if (!questionario) throw Error('questionario não encontrada');
             res.json(questionario[0]);
         }, function (error) {
             console.log(error);
@@ -28,7 +37,6 @@ api.buscaPorId = function (req, res) {
 };
 
 api.removePorId = function (req, res) {
-
     model
         .findByIdAndUpdate(req.params.id, { ativo: false })
         .then(function (questionario) {
@@ -37,22 +45,27 @@ api.removePorId = function (req, res) {
             console.log(error);
             res.status(500).json(error);
         });
-};
+}
+
+api.buscaEscolaUsuario = function (login) {
+    return modelUsuario.findOne({ email: login });
+}
 
 api.adiciona = function (req, res) {
-
-    console.log(req.body);
     var c = req.body;
     c["ativo"] = true;
-    model
-        .create(c)
-        .then(function (questionario) {
-            res.json(questionario);
-            console.log(c);
-        }, function (error) {
-            console.log(error);
-            res.status(500).json(error);
-        });
+    c["id_criador"] = req.usuario.login;
+    api.buscaEscolaUsuario(req.usuario.login).then(user => {
+        c.id_escola = user.id_escola;
+        model
+            .create(c)
+            .then(function (questionario) {
+                res.json(questionario);
+            }, function (error) {
+                console.log(error);
+                res.status(500).json(error);
+            });
+    })
 };
 
 api.atualiza = function (req, res) {

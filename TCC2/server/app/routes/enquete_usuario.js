@@ -10,5 +10,4 @@ module.exports = function (app) {
     app.route('/enquete_usuario/:id')
         .get(api.buscaPorId)
         .delete(api.removePorId);
-
 };

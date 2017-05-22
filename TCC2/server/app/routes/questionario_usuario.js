@@ -1,13 +1,14 @@
 module.exports = function (app) {
-    var api = app.api.enquete;
+    var api = app.api.questionario_usuario;
  
     //enquete
-    app.route('/enquete')
+    app.route('/questionario_usuario')
         .get(api.lista)
         .post(api.adiciona)
         .put(api.atualiza);
 
-    app.route('/enquete/:id')
+    app.route('/questionario_usuario/:id')
         .get(api.buscaPorId)
         .delete(api.removePorId);
+
 };
