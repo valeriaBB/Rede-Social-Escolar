@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var modelEscola = mongoose.model('Escola');
 var api = {}
-var model = mongoose.model('Enquete');
-var modelEnqueteUsuario = mongoose.model('Enquete_usuario');
+var model = mongoose.model('Questionario');
+var modelEnqueteUsuario = mongoose.model('Questionario_usuario');
 var usuarioModel = require('./usuario');
-var enqueteUsuarioModel = require('./enquete_usuario');
+var enqueteUsuarioModel = require('./questionario_usuario');
 var modelUsuario = mongoose.model('Usuario');
 
 api.lista = function (req, res) {
@@ -12,14 +12,14 @@ api.lista = function (req, res) {
         if (escola) {
             model
                 .find({ ativo: true, id_escola: escola.id_escola }).populate("id_escola")
-                .then(function (enquetes) {
-                    res.json(enquetes);
+                .then(function (questionarios) {
+                    res.json(questionarios);
                 }, function (error) {
                     console.log(error);
                     res.status(500).json(error);
                 });
         } else {
-            console.log("Escola a qual a enquete pertence não foi encontrada!");
+            console.log("Escola o qual o questionário pertence não foi encontrado!");
         }
     })
 };

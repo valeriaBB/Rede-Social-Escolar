@@ -1,21 +1,27 @@
 <app-header></app-header>
 <div class="efeito">
   <div class="container">
-    <div class="row chamadaEnquete">
+    <div class="row chamada">
       <h3>Sabe aquela dúvida?</h3>
       <h5>Pois então, podemos juntos, como comunidade participar ativamente do processo de melhoria da educação de nossa escola.</h5>
       <span>Pesquise opniões!</span>
-      <div class="row">
-        <a routerLink="/cadastroenquete" class="btn btnNovo">Começar uma enquete</a>
+      <div class="row col-md-12">
+        <div class="btnEnquete col-md-6">
+          <a routerLink="/cadastroenquete" class="btn btnNovo">Começar uma enquete</a>
+        </div>
+        <div class="btnQuestionario col-md-6">
+          <a routerLink="/cadastroquestionario" class="btn btnNovo">Começar um questionário</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="enquetes col-md-12">
-      <h5>Enquetes Ativas</h5>
+    <div class="principal col-md-12">
+
       <div class="enquete col-md-6">
+        <h5>Enquetes Ativas</h5>
         <table class="table table-striped enquete">
           <tbody *ngFor="let c of enquetes">
             <tr>
@@ -30,12 +36,28 @@
           </tbody>
         </table>
       </div>
-      <div class="resultado col-md-6" *ngFor="let c of enquetes">
-      
 
 
-      
+      <div class="questionarios col-md-6">
+        <h5>Questionarios Ativos</h5>
+        <table class="table table-striped enquete">
+          <tbody *ngFor="let c of questionarios">
+            <tr>
+              <td>Título:</td>
+              <td>{{c.nome}}</td>
+            </tr>
+            <tr>
+              <td>Pergunta:</td>
+              <td>{{c.pergunta}}</td>
+            </tr>
+            <div class="btnResponder"><a [routerLink]="['/responderquestionario/', c._id]" class="btn btnNovo">Responder</a></div>
+          </tbody>
+        </table>
       </div>
+
+
+
+
     </div>
   </div>
 </div>

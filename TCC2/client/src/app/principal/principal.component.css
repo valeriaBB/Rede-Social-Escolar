@@ -1,9 +1,6 @@
-.chamadaEnquete{
+.chamada{
     text-align: center; 
-}
-.enquetes{
-    display:inline-block;
-    width: 100%;
+    min-height: 200px;
 }
 .tituloEnquetes{
     font-size: 14px;
