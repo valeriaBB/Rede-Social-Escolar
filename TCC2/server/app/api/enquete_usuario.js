@@ -1,9 +1,95 @@
 var mongoose = require('mongoose');
 var api = {}
 var model = mongoose.model('Enquete_usuario');
+var modelEnquete = mongoose.model('Enquete');
+
+api.buscaTotalEnquete = function (id_enquete) {
+    return modelEnquete.findById({ _id: id_enquete });
+}
 
 api.adiciona = function (req, res) {
     var c = req.body;
+    if (c["resposta1"] == true) {
+        var total = 0;
+        api.buscaTotalEnquete(req.body.id_enquete).then(enquete => {
+            total = enquete.resp1 + 1;
+            modelEnquete
+                .findByIdAndUpdate(req.body.id_enquete, { resp1: total })
+                .then(function (enquete) {
+                    res.json(enquete);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        }, function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    } else if (c["resposta2"] == true) {
+        var total = 0;
+        api.buscaTotalEnquete(req.body.id_enquete).then(enquete => {
+            total = enquete.resp2 + 1;
+            modelEnquete
+                .findByIdAndUpdate(req.body.id_enquete, { resp2: total })
+                .then(function (enquete) {
+                    res.json(enquete);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        }, function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    } else if (c["resposta3"] == true) {
+        var total = 0;
+        api.buscaTotalEnquete(req.body.id_enquete).then(enquete => {
+            total = enquete.resp3 + 1;
+            modelEnquete
+                .findByIdAndUpdate(req.body.id_enquete, { resp3: total })
+                .then(function (enquete) {
+                    res.json(enquete);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        }, function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    } else if (c["resposta4"] == true) {
+        var total = 0;
+        api.buscaTotalEnquete(req.body.id_enquete).then(enquete => {
+            total = enquete.resp4 + 1;
+            modelEnquete
+                .findByIdAndUpdate(req.body.id_enquete, { resp4: total })
+                .then(function (enquete) {
+                    res.json(enquete);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        }, function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    } else if (c["resposta5"] == true) {
+        var total = 0;
+        api.buscaTotalEnquete(req.body.id_enquete).then(enquete => {
+            total = enquete.resp5 + 1;
+            modelEnquete
+                .findByIdAndUpdate(req.body.id_enquete, { resp5: total })
+                .then(function (enquete) {
+                    res.json(enquete);
+                }, function (error) {
+                    console.log(error);
+                    res.status(500).json(error);
+                });
+        }, function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
+    }
     model
         .create(c)
         .then(function (enquete_usuario) {

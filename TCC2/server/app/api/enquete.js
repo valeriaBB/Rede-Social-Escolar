@@ -54,6 +54,7 @@ api.buscaEscolaUsuario = function (login) {
 api.adiciona = function (req, res) {
     var c = req.body;
     c["ativo"] = true;
+    c["resp1"] = c["resp2"] = c["resp3"] = c["resp4"] = c["resp5"] = 0;
     c["id_criador"] = req.usuario.login;
     api.buscaEscolaUsuario(req.usuario.login).then(user => {
         c.id_escola = user.id_escola;

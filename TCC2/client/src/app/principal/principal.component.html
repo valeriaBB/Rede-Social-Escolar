@@ -26,13 +26,15 @@
               <td>Pergunta:</td>
               <td>{{c.pergunta}}</td>
             </tr>
-              <div class="btnResponder"><a [routerLink]="['/responderenquete/', c._id]" class="btn btnNovo">Responder</a></div>
+            <div class="btnResponder"><a [routerLink]="['/responderenquete/', c._id]" class="btn btnNovo">Responder</a></div>
           </tbody>
         </table>
       </div>
       <div class="resultado col-md-6" *ngFor="let c of enquetes">
-        <div class="tituloGrafico">{{c.nome}}</div>
-        <app-grafico></app-grafico>
+      
+
+
+      
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
   styleUrls: ['./responderenquete.component.css']
 })
 export class ResponderenqueteComponent implements OnInit {
- formCadastro: FormGroup;
+  formCadastro: FormGroup;
   enquete = {};
   enquete_usuario = {};
   usuario = {};
@@ -35,7 +35,7 @@ export class ResponderenqueteComponent implements OnInit {
           );
       }
     });
-        this.http = http; 
+    this.http = http;
   }
 
   ngOnInit() {
@@ -43,22 +43,42 @@ export class ResponderenqueteComponent implements OnInit {
   }
 
   salvar(event) {
-     if (this.resposta1 == true) 
+    if (this.resposta1 == true) {
       this.enquete_usuario["resposta1"] = true;
-    if (this.resposta2 == true)
+      this.enquete_usuario["resposta2"] = false;
+      this.enquete_usuario["resposta3"] = false;
+      this.enquete_usuario["resposta4"] = false;
+      this.enquete_usuario["resposta5"] = false;
+    }else if (this.resposta2 == true) {
       this.enquete_usuario["resposta2"] = true;
-    if (this.resposta3 == true) 
+      this.enquete_usuario["resposta1"] = false;
+      this.enquete_usuario["resposta3"] = false;
+      this.enquete_usuario["resposta4"] = false;
+      this.enquete_usuario["resposta5"] = false;
+    } else if (this.resposta3 == true) {
       this.enquete_usuario["resposta3"] = true;
-    if (this.resposta4 == true)
+      this.enquete_usuario["resposta1"] = false;
+      this.enquete_usuario["resposta2"] = false;
+      this.enquete_usuario["resposta4"] = false;
+      this.enquete_usuario["resposta5"] = false;
+    } else if (this.resposta4 == true) {
       this.enquete_usuario["resposta4"] = true;
-      if (this.resposta5 == true)
+      this.enquete_usuario["resposta1"] = false;
+      this.enquete_usuario["resposta2"] = false;
+      this.enquete_usuario["resposta3"] = false;
+      this.enquete_usuario["resposta5"] = false;
+    } else if (this.resposta5 == true) {
       this.enquete_usuario["resposta5"] = true;
-     
-      var teste = ServerService.id_user.replace('"',"");
-      var teste2 = teste.replace('"',"");
-      this.enquete_usuario["id_usuario"] = teste2;
-      this.enquete_usuario["id_enquete"] = this.enquete["_id"];
-      this.enquete_usuario["pergunta"] = this.enquete["pergunta"];
+      this.enquete_usuario["resposta1"] = false;
+      this.enquete_usuario["resposta2"] = false;
+      this.enquete_usuario["resposta3"] = false;
+      this.enquete_usuario["resposta4"] = false;
+    }
+    var teste = ServerService.id_user.replace('"', "");
+    var teste2 = teste.replace('"', "");
+    this.enquete_usuario["id_usuario"] = teste2;
+    this.enquete_usuario["id_enquete"] = this.enquete["_id"];
+    this.enquete_usuario["pergunta"] = this.enquete["pergunta"];
 
     this.service.salvar(this.enquete_usuario, 'enquete_usuario')
       .subscribe(() => {

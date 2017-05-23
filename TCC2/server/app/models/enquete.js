@@ -57,6 +57,26 @@ var schema = mongoose.Schema({
     id_criador: {
         type: String,
         required: false
+    },
+    resp1: {
+        type: Number,
+        required: false
+    },
+    resp2: {
+        type: Number,
+        required: false
+    },
+    resp3: {
+        type: Number,
+        required: false
+    },
+    resp4: {
+        type: Number,
+        required: false
+    },
+    resp5: {
+        type: Number,
+        required: false
     }
 });
 
