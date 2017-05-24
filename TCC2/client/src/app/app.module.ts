@@ -45,6 +45,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { GraficoComponent } from './grafico/grafico.component';
 import { ChartsModule } from 'ng2-charts';
 import { ResponderenqueteComponent } from './responderenquete/responderenquete.component';
+import { ResponderquestionarioComponent } from './responderquestionario/responderquestionario.component';
 
 
 
@@ -85,7 +86,8 @@ import { ResponderenqueteComponent } from './responderenquete/responderenquete.c
     AlunoPipe,
     PrincipalComponent,
     GraficoComponent,
-    ResponderenqueteComponent
+    ResponderenqueteComponent,
+    ResponderquestionarioComponent
  
  
   ],

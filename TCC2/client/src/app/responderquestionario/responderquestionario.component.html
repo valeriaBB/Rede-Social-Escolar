@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container">
+  <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
+    <div class="col-md-6">
+
+      <div class="form-group titulo">
+        <label>{{questionario.nome}}</label>
+      </div>
+
+      <div class="form-group titulo">
+        <label>{{questionario.pergunta1}}</label>
+      </div>
+
+      <div class="form-group titulo">
+        <label>{{questionario.pergunta2}}</label>
+      </div>
+
+      <div class="form-group titulo">
+        <label>{{questionario.pergunta3}}</label>
+      </div>
+
+      <div class="form-group titulo">
+        <label>{{questionario.pergunta4}}</label>
+      </div>
+
+      <div class="form-group titulo">
+        <label>{{questionario.pergunta5}}</label>
+      </div>
+
+      <div class=" botoes row">
+        <div class="col-md-12">
+          <input type="submit" class="btn btnNovo pull-right" value="Salvar" />
+          <div class="btn btnNovo pull-left" routerLink="/questionario">Voltar</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

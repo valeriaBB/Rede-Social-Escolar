@@ -32,6 +32,8 @@ import { PrincipalComponent } from './principal/principal.component';
 
 import { ResponderenqueteComponent } from './responderenquete/responderenquete.component';
 
+import { ResponderquestionarioComponent } from './responderquestionario/responderquestionario.component';
+
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -169,6 +171,10 @@ const routes: Routes = [
   {
     path: 'responderenquete/:id',
     component: ResponderenqueteComponent
+  },
+  {
+    path: 'responderquestionario/:id',
+    component: ResponderquestionarioComponent
   }
 ];
 
