@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
   templateUrl: './responderenquete.component.html',
   styleUrls: ['./responderenquete.component.css']
 })
+
 export class ResponderenqueteComponent implements OnInit {
   formCadastro: FormGroup;
   enquete = {};

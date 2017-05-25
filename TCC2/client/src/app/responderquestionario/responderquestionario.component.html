@@ -1,32 +1,75 @@
 <app-header></app-header>
 <div class="container">
   <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
-    <div class="col-md-6">
-
+    <div class="col-md-12 ">
       <div class="form-group titulo">
         <label>{{questionario.nome}}</label>
       </div>
-
-      <div class="form-group titulo">
+      <div class="form-group">
         <label>{{questionario.pergunta1}}</label>
+        <input formControlName="resposta1" name="resposta1" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="questionario_usuario.resposta1"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.resposta1.invalid">
+          <span *ngIf="formCadastro.controls.resposta1.errors.minlength" class="form-control alert-danger">
+            Resposta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.resposta1.errors.maxlength" class="form-control alert-danger">
+            Resposta deve ter no máximo 1000 caracteres
+          </span>
+        </div>
       </div>
-
-      <div class="form-group titulo">
+      <div class="form-group">
         <label>{{questionario.pergunta2}}</label>
+        <input formControlName="resposta2" name="resposta2" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="questionario_usuario.resposta2"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.resposta2.invalid">
+          <span *ngIf="formCadastro.controls.resposta2.errors.minlength" class="form-control alert-danger">
+            Resposta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.resposta2.errors.maxlength" class="form-control alert-danger">
+            Resposta deve ter no máximo 1000 caracteres
+          </span>
+        </div>
       </div>
-
-      <div class="form-group titulo">
+      <div class="form-group">
         <label>{{questionario.pergunta3}}</label>
+        <input formControlName="resposta3" name="resposta3" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="questionario_usuario.resposta3"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.resposta3.invalid">
+          <span *ngIf="formCadastro.controls.resposta3.errors.minlength" class="form-control alert-danger">
+            Resposta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.resposta3.errors.maxlength" class="form-control alert-danger">
+            Resposta deve ter no máximo 1000 caracteres
+          </span>
+        </div>
       </div>
-
-      <div class="form-group titulo">
+      <div class="form-group">
         <label>{{questionario.pergunta4}}</label>
+        <input formControlName="resposta4" name="resposta4" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="questionario_usuario.resposta4"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.resposta4.invalid">
+          <span *ngIf="formCadastro.controls.resposta4.errors.minlength" class="form-control alert-danger">
+            Resposta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.resposta4.errors.maxlength" class="form-control alert-danger">
+            Resposta deve ter no máximo 1000 caracteres
+          </span>
+        </div>
       </div>
-
-      <div class="form-group titulo">
+      <div class="form-group">
         <label>{{questionario.pergunta5}}</label>
+        <input formControlName="resposta5" name="resposta5" ngModel minlength="3" ngModel maxlength="1000" [(ngModel)]="questionario_usuario.resposta5"
+          class="form-control" autocomplete="off">
+        <div *ngIf="formCadastro.controls.resposta5.invalid">
+          <span *ngIf="formCadastro.controls.resposta5.errors.minlength" class="form-control alert-danger">
+            Resposta deve ter no mínimo 3 caracteres
+          </span>
+          <span *ngIf="formCadastro.controls.resposta5.errors.maxlength" class="form-control alert-danger">
+            Resposta deve ter no máximo 1000 caracteres
+          </span>
+        </div>
       </div>
-
       <div class=" botoes row">
         <div class="col-md-12">
           <input type="submit" class="btn btnNovo pull-right" value="Salvar" />

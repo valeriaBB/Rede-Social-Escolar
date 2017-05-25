@@ -11,7 +11,7 @@ var schema = mongoose.Schema({
         ref: 'Usuario',
         required: false
     },
-    pergunta: {
+    nome: {
         type:String,
         required: false
     },
