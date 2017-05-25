@@ -12,6 +12,7 @@ export class ServerService {
   public token: string;
   public user: UsuarioLogado;
   static id_user;
+  static tipo;
   constructor(private http: Http, private router: Router) {
     this.token = localStorage.getItem("__token");
   }
@@ -24,7 +25,7 @@ export class ServerService {
     id = JSON.stringify(id);
     nome = JSON.stringify(nome);
     email = JSON.stringify(email);
-    tipo = tipo;
+    ServerService.tipo = tipo;
     ServerService.id_user = id;
     this.userLogado = new UsuarioLogado(id, nome, email, tipo);
   }

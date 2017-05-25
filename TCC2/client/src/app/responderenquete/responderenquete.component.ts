@@ -13,6 +13,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
 export class ResponderenqueteComponent implements OnInit {
   formCadastro: FormGroup;
   enquete = {};
+  enquete2 = {};
   enquete_usuario = {};
   usuario = {};
   resposta1 = false;
@@ -20,6 +21,8 @@ export class ResponderenqueteComponent implements OnInit {
   resposta3 = false;
   resposta4 = false;
   resposta5 = false;
+  public doughnutChartLabels:string[] = ['Alternativa I', 'Alternativa II', ' Alternativa III', ' Alternativa IV','Alternativa V'];
+  public doughnutChartType:string = 'doughnut';
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({});
