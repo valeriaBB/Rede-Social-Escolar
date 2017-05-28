@@ -53,6 +53,18 @@ export class ServerService {
     }).map((res: Response) => res.json());
   }
 
+  doGet2(id, url) {
+    var headers = new Headers();
+    headers.append("x-access-token", this.token);
+    return this.http.get(this.URL + url + id, {
+      headers: headers
+    }).map((res: Response) => res.json());
+  }
+
+  getAny2(id:string, alguem: string) {
+    return this.doGet2(id, alguem);
+  }
+
   getAny(alguem: string) {
     return this.doGet(alguem);
   }

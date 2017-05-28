@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerService } from '../services/server/server.service';
+import { Http, Headers } from '@angular/http';
+import { ServerService } from 'app/services/server/server.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-respostasquestionario',
@@ -9,11 +12,18 @@ import { ServerService } from '../services/server/server.service';
 export class RespostasquestionarioComponent implements OnInit {
 
   public questionarios: Array<any> = [];
+  public id: string;
 
-  constructor(private service: ServerService) { }
+  constructor(private http: Http, private router: Router, private route: ActivatedRoute,private service: ServerService) {
+    this.route = route;
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      console.log(this.id);
+   });
+  }
 
   ngOnInit() {
-    this.service.getAny('questionario_usuario').subscribe(res => {
+    this.service.getAny2(this.id ,'questionario_usuario/').subscribe(res => {
       this.questionarios = res;
       })
   }

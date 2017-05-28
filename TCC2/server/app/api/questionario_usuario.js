@@ -18,7 +18,7 @@ api.adiciona = function (req, res) {
 api.lista = function (req, res) {
     console.log("entrouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
     model
-        .find({ativo: true})
+        .find({ativo: true, id_questionario: req.params.id})
         .then(function (turmas) {
             res.json(turmas);
         }, function (error) {
