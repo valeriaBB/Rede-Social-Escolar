@@ -52,6 +52,11 @@ export class ResponderquestionarioComponent implements OnInit {
     this.questionario_usuario["id_usuario"] = teste2;
     this.questionario_usuario["id_questionario"] = this.questionario["_id"];
     this.questionario_usuario["nome"] = this.questionario["nome"];
+    this.questionario_usuario["pergunta1"] = this.questionario["pergunta1"];
+    this.questionario_usuario["pergunta2"] = this.questionario["pergunta2"];
+    this.questionario_usuario["pergunta3"] = this.questionario["pergunta3"];
+    this.questionario_usuario["pergunta4"] = this.questionario["pergunta4"];
+    this.questionario_usuario["pergunta5"] = this.questionario["pergunta5"];
     this.service.salvar(this.questionario_usuario, 'questionario_usuario')
       .subscribe(() => {
         this.router.navigate(['/principal']);

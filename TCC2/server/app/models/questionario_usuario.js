@@ -15,6 +15,10 @@ var schema = mongoose.Schema({
         type:String,
         required: false
     },
+    ativo: {
+        type: Boolean,
+        required: false
+    },
     resposta1: {
         type: String,
         required: false
@@ -32,6 +36,26 @@ var schema = mongoose.Schema({
         required: false
     },
     resposta5: {
+        type: String,
+        required: false
+    },
+     pergunta1: {
+        type: String,
+        required: true
+    },
+    pergunta2: {
+        type: String,
+        required: true
+    },
+    pergunta3: {
+        type: String,
+        required: false
+    },
+    pergunta4: {
+        type: String,
+        required: false
+    },
+    pergunta5: {
         type: String,
         required: false
     }

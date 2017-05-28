@@ -32,7 +32,10 @@ import { PrincipalComponent } from './principal/principal.component';
 
 import { ResponderenqueteComponent } from './responderenquete/responderenquete.component';
 
+
 import { ResponderquestionarioComponent } from './responderquestionario/responderquestionario.component';
+
+import { RespostasquestionarioComponent } from './respostasquestionario/respostasquestionario.component';
 
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
@@ -175,6 +178,10 @@ const routes: Routes = [
   {
     path: 'responderquestionario/:id',
     component: ResponderquestionarioComponent
+  },
+  {
+    path: 'respostasquestionario/:id',
+    component: RespostasquestionarioComponent
   }
 ];
 

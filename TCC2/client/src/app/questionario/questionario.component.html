@@ -29,6 +29,11 @@
                     <tr *ngFor="let c of questionarios | questionarioPipe: textoProcurado.value">
                         <td>{{c.nome}}</td>
                         <td>
+                            <div class="btn btnEditar btn-primary btn-xs" [routerLink]="['/respostasquestionario/', c._id]">
+                                <span>Respostas</span>
+                            </div>
+                        </td>
+                        <td>
                             <div class="btn btnEditar btn-primary btn-xs" [routerLink]="['/cadastroquestionario/', c._id]">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </div>

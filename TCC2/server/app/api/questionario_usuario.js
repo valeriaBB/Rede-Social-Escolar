@@ -4,6 +4,7 @@ var model = mongoose.model('Questionario_usuario');
 
 api.adiciona = function (req, res) {
     var c = req.body;
+    c["ativo"] = true;
     model
         .create(c)
         .then(function (questionario_usuario) {
@@ -15,6 +16,15 @@ api.adiciona = function (req, res) {
 };
 
 api.lista = function (req, res) {
+    console.log("entrouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+    model
+        .find({ativo: true})
+        .then(function (turmas) {
+            res.json(turmas);
+        }, function (error) {
+            console.log(error);
+            res.status(500).json(error);
+        });
 };
 
 api.buscaPorId = function (req, res) {

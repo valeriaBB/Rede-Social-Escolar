@@ -1,0 +1,38 @@
+<app-header> </app-header>
+
+<div class="container tabela">
+  <div class='titulo-pagina'>Respostas Questionários</div>
+  <div class="row barra">
+    <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por questionario">
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr *ngFor="let c of questionarios | questionarioPipe: textoProcurado.value">
+            <th>{{c.pergunta1}}</th>
+            <th>{{c.pergunta2}}</th>
+            <th>{{c.pergunta3}}</th>
+            <th>{{c.pergunta4}}</th>
+            <th>{{c.pergunta5}}</th>
+            <th>Respondida por</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of questionarios | questionarioPipe: textoProcurado.value">
+            <th>{{c.resposta1}}</th>
+            <th>{{c.resposta2}}</th>
+            <th>{{c.resposta3}}</th>
+            <th>{{c.resposta4}}</th>
+            <th>{{c.resposta5}}</th>
+            <th>{{c.id_usuario}}</th>
+            <tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-12 row">
+      <div class="btn btnNovo pull-left" routerLink="/questionario">Voltar</div>
+    </div>
+  </div>
+</div>
