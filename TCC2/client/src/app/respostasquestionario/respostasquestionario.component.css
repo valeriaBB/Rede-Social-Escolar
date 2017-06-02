@@ -1,0 +1,17 @@
+.table-questionarios{
+    font-size:14px;
+}
+.table{
+    width: 1170px;
+}
+
+.titulo-pagina{
+    position:relative;
+    margin: 20px 0;
+}
+.destaque{
+    background-color:#eee;
+    height: 50px;
+    font-weight: bold;
+    line-height: 35px;
+}

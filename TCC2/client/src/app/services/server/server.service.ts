@@ -20,7 +20,10 @@ export class ServerService {
   public sair() {
     localStorage.clear();
   }
-
+  public nome(){
+    return this.userLogado.nome;
+  }
+ 
   public usuarioLogado(id: any, nome: any, email: any, tipo: any) {
     id = JSON.stringify(id);
     nome = JSON.stringify(nome);

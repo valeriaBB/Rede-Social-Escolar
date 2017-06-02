@@ -47,9 +47,9 @@ export class ResponderquestionarioComponent implements OnInit {
   }
 
   public salvar(event) {
-    var teste = ServerService.id_user.replace('"', "");
+    var teste = this.service.nome().replace('"', "");
     var teste2 = teste.replace('"', "");
-    this.questionario_usuario["id_usuario"] = teste2;
+    this.questionario_usuario["usuario"] = teste2;
     this.questionario_usuario["id_questionario"] = this.questionario["_id"];
     this.questionario_usuario["nome"] = this.questionario["nome"];
     this.questionario_usuario["pergunta1"] = this.questionario["pergunta1"];

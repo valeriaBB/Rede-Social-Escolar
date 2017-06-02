@@ -3,33 +3,39 @@
 <div class="container tabela">
   <div class='titulo-pagina'>Respostas Questionários</div>
   <div class="row barra">
-    <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por questionario">
+    <input #textoProcurado (keyup)="0" class="form-control" placeholder="Buscar por usuário">
   </div>
 
   <div class="container">
     <div class="row">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>pergunta1</th>
-            <th>pergunta2</th>
-            <th>pergunta3</th>
-            <th>pergunta4</th>
-            <th>pergunta5</th>
-            <th>Respondida por</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let c of questionarios | questionarioPipe: textoProcurado.value">
-            <th>{{c.resposta1}}</th>
-            <th>{{c.resposta2}}</th>
-            <th>{{c.resposta3}}</th>
-            <th>{{c.resposta4}}</th>
-            <th>{{c.resposta5}}</th>
-            <th>{{c.id_usuario}}</th>
+     <table class="table table-striped questionarios">
+          <tbody *ngFor="let c of questionarios | respostasquestionarioPipe: textoProcurado.value">
             <tr>
-        </tbody>
-      </table>
+              <td class="destaque col-md-4">Respondido por:</td>
+              <td class="destaque col-md-8">{{c.usuario}}</td>
+            </tr>
+            <tr>
+              <td>{{c.pergunta1}}</td>
+              <td>{{c.resposta1}}</td>
+            </tr>
+            <tr>
+              <td>{{c.pergunta2}}</td>
+              <td>{{c.resposta2}}</td>
+            </tr>
+            <tr>
+              <td>{{c.pergunta3}}</td>
+              <td>{{c.resposta3}}</td>
+            </tr>
+            <tr>
+              <td>{{c.pergunta4}}</td>
+              <td>{{c.resposta4}}</td>
+            </tr>
+            <tr>
+              <td>{{c.pergunta5}}</td>
+              <td>{{c.resposta5}}</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
     <div class="col-md-12 row">
       <div class="btn btnNovo pull-left" routerLink="/questionario">Voltar</div>

@@ -47,6 +47,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ResponderenqueteComponent } from './responderenquete/responderenquete.component';
 import { ResponderquestionarioComponent } from './responderquestionario/responderquestionario.component';
 import { RespostasquestionarioComponent } from './respostasquestionario/respostasquestionario.component';
+import { RespostasquestionarioPipe } from './pipes/respostasquestionario.pipe';
 
 
 
@@ -89,7 +90,8 @@ import { RespostasquestionarioComponent } from './respostasquestionario/resposta
     GraficoComponent,
     ResponderenqueteComponent,
     ResponderquestionarioComponent,
-    RespostasquestionarioComponent
+    RespostasquestionarioComponent,
+    RespostasquestionarioPipe
  
  
   ],
