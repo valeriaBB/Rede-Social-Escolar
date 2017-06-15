@@ -10,19 +10,23 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
   styleUrls: ['./responderenquete.component.css']
 })
 
+
 export class ResponderenqueteComponent implements OnInit {
   formCadastro: FormGroup;
   enquete = {};
-  enquete2 = {};
+  respondeu: any = false;
   enquete_usuario = {};
-  usuario = {};
+  // resposta = {
+  //     respondido: ''
+  // };
+  
   resposta1 = false;
   resposta2 = false;
   resposta3 = false;
   resposta4 = false;
   resposta5 = false;
-  public doughnutChartLabels:string[] = ['Alternativa I', 'Alternativa II', ' Alternativa III', ' Alternativa IV','Alternativa V'];
-  public doughnutChartType:string = 'doughnut';
+  public doughnutChartLabels: string[] = ['Alternativa I', 'Alternativa II', ' Alternativa III', ' Alternativa IV', 'Alternativa V'];
+  public doughnutChartType: string = 'doughnut';
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({});
@@ -30,6 +34,13 @@ export class ResponderenqueteComponent implements OnInit {
     this.route = route;
     this.route.params.subscribe(params => {
       var id = params['id'];
+      var id_resposta = ServerService.id_user.replace(/\"/g, "") + ',' + id;
+        this.buscaResposta(id_resposta)
+          .subscribe(
+          //res => self.resposta.respondido = (res.json()),
+          res => self.respondeu = (res),
+          erro => console.log(erro)
+          );
 
       if (id != undefined) {
         this.buscaEnqueteEditavel(id)
@@ -43,7 +54,7 @@ export class ResponderenqueteComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usuario["_id"] = ServerService.id_user;
+   
   }
 
   salvar(event) {
@@ -53,7 +64,7 @@ export class ResponderenqueteComponent implements OnInit {
       this.enquete_usuario["resposta3"] = false;
       this.enquete_usuario["resposta4"] = false;
       this.enquete_usuario["resposta5"] = false;
-    }else if (this.resposta2 == true) {
+    } else if (this.resposta2 == true) {
       this.enquete_usuario["resposta2"] = true;
       this.enquete_usuario["resposta1"] = false;
       this.enquete_usuario["resposta3"] = false;
@@ -78,9 +89,7 @@ export class ResponderenqueteComponent implements OnInit {
       this.enquete_usuario["resposta3"] = false;
       this.enquete_usuario["resposta4"] = false;
     }
-    var teste = ServerService.id_user.replace('"', "");
-    var teste2 = teste.replace('"', "");
-    this.enquete_usuario["id_usuario"] = teste2;
+    this.enquete_usuario["id_usuario"] = ServerService.id_user.replace(/\"/g, "");
     this.enquete_usuario["id_enquete"] = this.enquete["_id"];
     this.enquete_usuario["pergunta"] = this.enquete["pergunta"];
 
@@ -94,4 +103,7 @@ export class ResponderenqueteComponent implements OnInit {
     return this.service.editar(id, 'enquete/');
   }
 
+   public buscaResposta(id: string) {
+     return this.service.editar(id, 'enquete_usuario/');
+   }
 }

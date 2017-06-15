@@ -104,6 +104,42 @@ api.lista = function (req, res) {
 };
 
 api.buscaPorId = function (req, res) {
+    console.log(req.params.id);
+    var ids = req.params.id.split(",");
+    usuario = ids[0];
+    enquete = ids[1];
+    console.log(ids[0]);
+    console.log(ids[1]);
+    model
+        .find({ id_usuario: usuario,
+                id_enquete: enquete })
+        .then(function (enquete_usuario) {
+            if (!enquete_usuario[0]){
+                var resposta = {
+                    respondido: false
+                }
+                
+                console.log(resposta);
+                console.log(resposta.respondido);
+                console.log("nãoo respondeu");
+                //res(false);
+                res.json(resposta.respondido);
+            }else {
+                console.log("ja respondeu");
+                var resposta = {
+                    respondido: true
+                }
+                
+                console.log(resposta);
+                console.log(resposta.respondido);
+                console.log(enquete_usuario[0]);
+                res(true);
+                //res(true);
+            }
+        }, function (error) {
+            console.log(error);
+            res.status(404).json(error);
+        });
 };
 
 api.removePorId = function (req, res) {

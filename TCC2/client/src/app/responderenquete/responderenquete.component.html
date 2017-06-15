@@ -1,7 +1,15 @@
 <app-header></app-header>
 <div class="container">
   <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
-    <div class="col-md-6">
+    <div [hidden]="respondeu" class="col-md-6 respondeu">
+      <span>Você já respondeu essa enquete!</span>
+      <p>Acompanhe o resultado da votação!</p>
+      <div class="form-group pergunta">
+        <label>{{enquete.pergunta}}</label>
+      </div>
+    </div>
+    <!--<div [hidden]="[resposta.respondido]" class="col-md-6">-->
+    <div [hidden]="!respondeu" class="col-md-6">
       <div class="form-group titulo">
         <label>{{enquete.nome}}</label>
       </div>
@@ -33,14 +41,10 @@
     <div class="col-md-6">
       <div class="titulo-grafico">Parcial de votos por alternativa</div>
       <div class="grafico" style="display: block">
-        <canvas baseChart 
-          [data]="[enquete.resp1, enquete.resp2, enquete.resp3, enquete.resp4, enquete.resp5]" 
-          [labels]="doughnutChartLabels" 
-          [chartType]="doughnutChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
+        <canvas baseChart [data]="[enquete.resp1, enquete.resp2, enquete.resp3, enquete.resp4, enquete.resp5]" [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
         </canvas>
-    </div>
+      </div>
     </div>
   </form>
 </div>
