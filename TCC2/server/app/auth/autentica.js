@@ -11,4 +11,7 @@ module.exports = function (app) {
         .get(apiAutentica.verificaToken)
         .put(apiAutentica.verificaToken)
         .post(apiAutentica.verificaToken);
+
+    app.route('/autenticar')
+        .put(apiAutentica.autenticaRelogin);
 };

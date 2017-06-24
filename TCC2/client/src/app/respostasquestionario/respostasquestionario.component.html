@@ -11,7 +11,7 @@
      <table class="table table-striped questionarios">
           <tbody *ngFor="let c of questionarios | respostasquestionarioPipe: textoProcurado.value">
             <tr>
-              <td class="destaque col-md-4">Respondido por:</td>
+              <td class="destaque col-md-4">Respondido por: {{c.nome_usuario}}</td>
               <td class="destaque col-md-8">{{c.usuario}}</td>
             </tr>
             <tr>

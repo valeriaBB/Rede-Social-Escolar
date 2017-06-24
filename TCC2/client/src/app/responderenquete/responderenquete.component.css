@@ -15,7 +15,8 @@
 
 .pergunta{
     margin: 10px;
-    font-size: 17px; 
+    font-size: 17px;
+    text-align: justify;
 }
 
 .opc{
@@ -45,5 +46,14 @@
 }
 .respondeu p{
     font-size: 15px;
+}
+.botoesCenter{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.botoesCenter .btn{
+    width: 150px;   
 }
 

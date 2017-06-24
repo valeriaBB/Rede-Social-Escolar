@@ -14,6 +14,7 @@ export class ResponderquestionarioComponent implements OnInit {
   questionario = {};
   questionario_usuario = {};
   usuario = {};
+  respondeu: any = true;
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private service: ServerService, fb: FormBuilder) {
     this.formCadastro = fb.group({
@@ -27,6 +28,15 @@ export class ResponderquestionarioComponent implements OnInit {
     this.route = route;
     this.route.params.subscribe(params => {
       var id = params['id'];
+      var id_resposta = ServerService.id_user.replace(/\"/g, "") + ',' + id;
+        this.buscaResposta(id_resposta)
+          .subscribe(
+          //res => self.respondeu = (res),
+          res => self.respondeu = (res.json()),
+          erro => console.log(erro)
+          );
+          console.log(self.respondeu);
+
       if (id != undefined) {
         this.buscaEditavel(id)
           .subscribe(
@@ -47,10 +57,9 @@ export class ResponderquestionarioComponent implements OnInit {
   }
 
   public salvar(event) {
-    var teste = this.service.nome().replace('"', "");
-    var teste2 = teste.replace('"', "");
-    this.questionario_usuario["usuario"] = teste2;
+    this.questionario_usuario["id_usuario"] = ServerService.id_user.replace(/\"/g, "");
     this.questionario_usuario["id_questionario"] = this.questionario["_id"];
+    this.questionario_usuario["nome_usuario"] = this.service.nome();
     this.questionario_usuario["nome"] = this.questionario["nome"];
     this.questionario_usuario["pergunta1"] = this.questionario["pergunta1"];
     this.questionario_usuario["pergunta2"] = this.questionario["pergunta2"];
@@ -62,4 +71,7 @@ export class ResponderquestionarioComponent implements OnInit {
         this.router.navigate(['/principal']);
       }, erro => console.log(erro));
   }
+  public buscaResposta(id: string) {
+     return this.service.editar(id, 'questionario_usuario/');
+   }
 }

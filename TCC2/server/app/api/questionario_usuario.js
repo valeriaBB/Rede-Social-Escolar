@@ -16,7 +16,6 @@ api.adiciona = function (req, res) {
 };
 
 api.lista = function (req, res) {
-    console.log("entrouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
     model
         .find({ativo: true, id_questionario: req.params.id})
         .then(function (turmas) {
@@ -28,6 +27,30 @@ api.lista = function (req, res) {
 };
 
 api.buscaPorId = function (req, res) {
+    var ids = req.params.id.split(",");
+    usuario = ids[0];
+    questionario = ids[1];
+    model
+        .find({ id_usuario: usuario,
+                id_questionario: questionario })
+        .then(function (questionario_usuario) {
+            if (!questionario_usuario[0]){
+                var resposta = {
+                    respondido: false
+                }
+                console.log(resposta.respondido);
+                res.json(resposta.respondido);
+            }else {
+                var resposta = {
+                    respondido: true
+                }
+                console.log(resposta.respondido);
+                res.json(resposta.respondido);
+            }
+        }, function (error) {
+            console.log(error);
+            res.status(404).json(error);
+        });
 };
 
 api.removePorId = function (req, res) {

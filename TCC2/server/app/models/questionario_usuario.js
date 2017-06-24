@@ -6,11 +6,20 @@ var schema = mongoose.Schema({
         ref: 'Questionario',
         required: false
     },
+    id_usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: false
+    },
     usuario: {
         type: String,
         required: false
     },
     nome: {
+        type:String,
+        required: false
+    },
+    nome_usuario: {
         type:String,
         required: false
     },

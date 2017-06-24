@@ -6,24 +6,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class ServerService {
+  User: any;
   closeResult: string;
   public userLogado: UsuarioLogado;
   URL = "http://localhost:3000/"
   public token: string;
+  public usLogado = {};
   public user: UsuarioLogado;
   static id_user;
   static tipo;
   constructor(private http: Http, private router: Router) {
     this.token = localStorage.getItem("__token");
+    this.usLogado  =  JSON.parse( localStorage.getItem("__user"));
   }
 
   public sair() {
     localStorage.clear();
   }
-  public nome(){
-    return this.userLogado.nome;
+  public nome() {
+    var teste = this.userLogado.nome.replace(/\"/g, "");
+    return teste;
   }
- 
+
   public usuarioLogado(id: any, nome: any, email: any, tipo: any) {
     id = JSON.stringify(id);
     nome = JSON.stringify(nome);
@@ -32,10 +36,26 @@ export class ServerService {
     ServerService.id_user = id;
     this.userLogado = new UsuarioLogado(id, nome, email, tipo);
   }
-  
+
   public login(objUsuario: any): Observable<any> {
     localStorage.clear();
+    this.usLogado = {
+      email: objUsuario.email,
+      senha: objUsuario.senha
+    }
     return this.http.post(this.URL + 'autenticar', objUsuario)
+      .map((res: Response) => {
+        this.token = res.headers.get('x-access-token');
+        localStorage.setItem("__token", this.token);
+        localStorage.setItem("__user", JSON.stringify(this.usLogado));
+        this.user = res.json();
+        return res.json();
+      });
+  }
+
+
+  public relogin() {
+    return this.http.put(this.URL + 'autenticar', { token: this.token,  user: this.usLogado }, this.usLogado)
       .map((res: Response) => {
         this.token = res.headers.get('x-access-token');
         localStorage.setItem("__token", this.token);
@@ -43,6 +63,8 @@ export class ServerService {
         return res.json();
       });
   }
+
+
 
   public verificaTipo() {
     return this.userLogado.tipo;
@@ -64,7 +86,7 @@ export class ServerService {
     }).map((res: Response) => res.json());
   }
 
-  getAny2(id:string, alguem: string) {
+  getAny2(id: string, alguem: string) {
     return this.doGet2(id, alguem);
   }
 

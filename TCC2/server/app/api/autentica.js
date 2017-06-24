@@ -27,7 +27,6 @@ module.exports = function (app) {
                         email: usuario.email,
                         tipo: usuario.tipo
                     });
-                    //  res.send(usuario);
                     res.next();
                 }
             }, function (error) {
@@ -35,6 +34,30 @@ module.exports = function (app) {
                 res.sendStatus(401);
             });
 
+    };
+
+     api.autenticaRelogin = function (req, res) {
+        model
+            .findOne({ email: req.body.user.email, senha: req.body.user.senha })
+            .then(function (usuario) {
+                if (!usuario) {
+                    console.log('Login ou senha invalidos - Voce não esta no banco de dados');
+                    res.sendStatus(401);
+                } else {
+                    var token = jwt.sign({ login: usuario.email }, app.get('secret'), { expiresIn: 84600 });
+                    res.set('x-access-token', token);
+                    res.json({
+                        _id: usuario._id,
+                        nome: usuario.nome,
+                        email: usuario.email,
+                        tipo: usuario.tipo
+                    });
+                    res.next();
+                }
+            }, function (error) {
+                console.log('Login ou senha invalidos - tente novamente');
+                res.sendStatus(401);
+            });
     };
 
     api.verificaToken = function (req, res, next) {

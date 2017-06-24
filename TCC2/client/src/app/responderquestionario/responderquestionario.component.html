@@ -1,7 +1,18 @@
 <app-header></app-header>
 <div class="container">
   <form [formGroup]="formCadastro" class="row" (submit)="salvar($event)">
-    <div class="col-md-12 ">
+    <div [hidden]="respondeu" class="col-md-12 respondeu">
+      <span>Você já respondeu esse questionário!</span>
+      <div class="form-group questRespondido">
+        <label>{{questionario.nome}}</label>
+      </div>
+      <div class=" botoesCenter row">
+        <div class="col-md-12">
+          <div class="btn btnNovo" routerLink="/principal">Voltar</div>
+        </div>
+      </div>
+    </div>
+    <div [hidden]="!respondeu" class="col-md-12 ">
       <div class="form-group titulo">
         <label>{{questionario.nome}}</label>
       </div>

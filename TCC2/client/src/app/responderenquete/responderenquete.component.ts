@@ -15,11 +15,7 @@ export class ResponderenqueteComponent implements OnInit {
   formCadastro: FormGroup;
   enquete = {};
   respondeu: any = false;
-  enquete_usuario = {};
-  // resposta = {
-  //     respondido: ''
-  // };
-  
+  enquete_usuario = {};  
   resposta1 = false;
   resposta2 = false;
   resposta3 = false;

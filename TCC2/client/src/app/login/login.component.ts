@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   autenticar(event) {
     event.preventDefault();
 

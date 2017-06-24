@@ -9,5 +9,5 @@ module.exports = function (app) {
     app.route('/aluno/:id')
         .get(api.buscaPorId)
         .delete(api.removePorId);
-
 };
+

@@ -7,8 +7,12 @@
       <div class="form-group pergunta">
         <label>{{enquete.pergunta}}</label>
       </div>
+      <div class=" botoesCenter row">
+        <div class="col-md-12">
+          <div class="btn btnNovo" routerLink="/principal">Voltar</div>
+        </div>
+      </div>
     </div>
-    <!--<div [hidden]="[resposta.respondido]" class="col-md-6">-->
     <div [hidden]="!respondeu" class="col-md-6">
       <div class="form-group titulo">
         <label>{{enquete.nome}}</label>
