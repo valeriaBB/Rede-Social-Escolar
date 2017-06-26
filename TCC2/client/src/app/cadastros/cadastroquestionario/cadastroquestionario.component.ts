@@ -71,4 +71,8 @@ export class CadastroquestionarioComponent implements OnInit {
     return this.service.editar(id, 'questionario/');
   }
 
+  public imprimir(e:any):void {
+    window.print();
+  }
+
 }

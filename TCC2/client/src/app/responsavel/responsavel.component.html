@@ -13,7 +13,6 @@
                 <tr>
                     <th>Responsável</th>
                     <th>E-mail</th>
-                    <th>Senha</th>
                     <th>Formacao</th>
                     <th>Idade</th>
                     <th>Telefone</th>
@@ -23,7 +22,6 @@
                 <tr *ngFor="let c of responsaveis | responsavelPipe: textoProcurado.value">
                     <td>{{c.nome}}</td>
                     <td>{{c.email}}</td>
-                    <td>{{c.senha}}</td>
                     <td>{{c.formacao}}</td>
                     <td>{{c.idade}}</td>
                     <td>{{c.telefone}}</td>

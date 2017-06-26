@@ -32,7 +32,7 @@
 
       <div class="form-group">
         <label>Senha</label>
-        <input formControlName="senha" name="senha" ngModel minlength="6" ngModel maxlength="12" [(ngModel)]="professor.senha" class="form-control" autocomplete="off" required>
+        <input formControlName="senha" type="password" name="senha" ngModel minlength="6" ngModel maxlength="12" [(ngModel)]="professor.senha" class="form-control" autocomplete="off" required>
         <div *ngIf="formCadastro.controls.senha.invalid">
           <span *ngIf="formCadastro.controls.senha.errors.minlength" class="form-control alert-danger">
             Senha deve ter no mínimo 6 caracteres

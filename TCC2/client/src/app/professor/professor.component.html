@@ -24,7 +24,6 @@
                 <tr>
                     <th>Professor</th>
                     <th>E-mail</th>
-                    <th>Senha</th>
                     <th>Formação</th>
                     <th>idade</th>
                     <th>telefone</th>
@@ -34,7 +33,6 @@
                 <tr *ngFor="let c of professores | professorPipe: textoProcurado.value">
                     <td>{{c.nome}}</td>
                     <td>{{c.email}}</td>
-                    <td>{{c.senha}}</td>
                     <td>{{c.formacao}}</td>
                     <td>{{c.idade}}</td>
                     <td>{{c.telefone}}</td>

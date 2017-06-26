@@ -15,7 +15,5 @@ export class GraficoComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // events
   
 }
