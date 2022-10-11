@@ -1,4 +1,4 @@
-# TCC-Rede-Social-Escolar
+# Rede-Social-Escolar
 Projeto em MEAN STACK - Rede Social Escolar, visa integrar a participação de pais e alunos no processo de ensino
 
 Programação - MEAN STACK 
