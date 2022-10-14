@@ -1,4 +1,4 @@
-School-Social-Network
+# School-Social-Network
 Project in MEAN STACK - School Social Network, aims to integrate the participation of parents and students in the teaching process
 
 Programming - MEAN STACK
